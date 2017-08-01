@@ -1,26 +1,56 @@
+<!-- linxiaowu -->
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" type="text/css" href="/css/main.css" />
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/cv">CV</a></li>
-        <li><a href="/blog">Blog</a></li>
-      </ul>
-    </nav>
-    <div class="container">
-      {{ content }}
-    </div>
-    <footer>
-      <ul>
-        <li><a href="mailto:myemail@163.com">email</a></li>
-        <li><a href="https://github.com/Leo-0">github.com/Leo-0</a></li>
-      </ul>
-    </footer>
-  </body>
+<html lang="en">
+{% include head.html %}
+<body>
+	<header>
+		<nav>
+			{% if site.brand.url %}
+				<div class="brand">
+					<a href="/">
+						<img src="{{ site.brand.url }}" />
+						{% if site.brand.addname %}
+							<span>{{ site.author.name }}</span>
+						{% endif %}
+					</a>
+				</div>
+			{% endif %}
+			<ul>
+				{% for item in site.nav %}
+					<li>
+						<a href="{{ item.url }}"> {{ item.title }} </a>
+					</li>
+				{% endfor %}
+				<li>
+					<input class="search" id="search-input" type="text" placeholder="搜索" />
+				</li>
+			</ul>
+		</nav>
+		<div class="jumbotron centered-wrapper">
+			<div class="items centered-wrapper centered">
+				<div class="avatar circle centered">
+					<a href="/">
+						<img src="{{ site.author.avatar }}" title="{{ site.author.name }}">
+					</a>
+				</div>
+				<div class="name">
+					<span>{{ site.author.name }}</span>
+				</div>
+				<div class="personalized">
+					{% for sign in site.personalized %}
+						<p class="signature">{{ sign.signature }}</p>
+					{% endfor %}
+				</div>
+			</div>
+			<div id="calendar"></div>
+		</div>
+
+		<!-- <div class="time" id="time"></div> -->
+	</header>
+	<!-- <div class="container">{{ content }}</div> -->
+	<script type="text/javascript" src="/assets/js/calendar.js"></script>
+	<script type="text/javascript">
+		Calendar({id: '#calendar'});
+	</script>
+</body>
 </html>
