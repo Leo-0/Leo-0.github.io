@@ -1,0 +1,230 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* site start */
+html, body {
+	height: 100%;
+}
+/*html {
+	background: url("/images/brownstripe.jpg");
+}*/
+a {
+	text-decoration: none;
+}
+.right {
+	float: right;
+}
+.left {
+	float: left;
+}
+.circle {
+	border-radius: 100%;
+}
+/**************************|
+|*      header start      *|
+|**************************/
+header {
+	height: 100%;
+	max-height: 768px;
+	background-image: url("/images/green.jpg");
+	/*6:00~13:00、 13:00~17:00、 17:00~6:00 */
+	background-size: 100% 100%;
+}
+/**************************|
+|*       nav start        *|
+|**************************/
+header nav {
+	padding: 5px 10px;
+	box-shadow: 0px 2px 5px #2D2D2D;
+	*zoom: 1;
+}
+header nav:after {
+	content: "";
+	width: 0;
+	height: 0;
+	line-height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+.brand {
+	display: inline-block;
+	padding-top: 5px;
+	height: 40px;
+}
+.brand a {
+	color: #F4F5F6;
+	display: block;
+	height: 100%;
+}
+.brand a img {
+	display: inline-block;
+	height: 100%;
+	max-width: 173px;
+}
+.brand a span {
+	float: right;
+	margin-top: 10px;
+	font-size: 1.25em;/*20px*/
+}
+header nav ul {
+	font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+	float: right;
+	height: 100%;
+	margin-top: 5px;
+	line-height: 40px;
+}
+header nav ul li {
+	display: inline-block;
+	margin-right: 20px;
+}
+header nav ul li:last-child {
+	margin: 0;
+}
+header nav ul li>a {
+	display: inline-block;
+	text-align: center;
+	color: #1B1B1B;
+	font-weight: bold;
+}
+header nav ul li>a:hover {
+	color: #F4F5F6;
+}
+header nav ul li input.search {
+	width: 0;
+	height: 25px;
+	border: 2px solid transparent;
+	border-radius: 6px;
+	padding: 1px 2px 1px 25px;
+	background-image: url("/images/search.svg");
+	background-size: 25px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	outline: none;
+	-webkit-transition: all .7s;
+	-o-transition: all .7s;
+	transition: all .7s;
+}
+header nav ul li input.search:focus {
+	width: 150px;
+	border-color: #82B7CE;
+}
+/**************************|
+|*        nav end         *|
+|**************************/
+/**************************|
+|*     centered start     *|
+|**************************/
+.centered-wrapper {
+	text-align: center;
+	white-space: nowrap;
+}
+.centered-wrapper:before {
+	content: ' ';
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+	margin-right: -0.25em;
+}
+.centered {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+}
+/**************************|
+|*      centered end      *|
+|**************************/
+/**************************|
+|*     jumbotron start    *|
+|**************************/
+.jumbotron {
+	width: 100%;
+	height: calc(100% - 57px);
+	min-height: 406px;
+	position: relative;
+}
+.jumbotron .items .avatar {
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.jumbotron .items .avatar a {
+	display: block;
+}
+.jumbotron .items .avatar a img {
+	display: block;
+	width: 150px;
+	height: 150px;
+}
+.jumbotron .items .name {
+	padding: 5px 0 15px;
+	font-weight: bold;
+	color: white;
+}
+.jumbotron .items .personalized {
+	width: 300px;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 2px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	padding: 10px 0;
+}
+.jumbotron .items .personalized .signature {
+	padding: 5px 0;
+}
+.jumbotron #calendar {
+	position: absolute;
+	top: 0;
+	right: 10%;
+}
+/**************************|
+|*     jumbotron end      *|
+|**************************/
+/**************************|
+|*       header end       *|
+|**************************/
