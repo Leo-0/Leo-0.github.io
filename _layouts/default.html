@@ -16,14 +16,14 @@
 				</div>
 			{% endif %}
 			<ul>
-				{% for item in site.nav %}
-					<li>
-						<a href="{{ item.url }}"> {{ item.title }} </a>
-					</li>
-				{% endfor %}
 				<li>
 					<input class="search" id="search-input" type="text" placeholder="搜索" />
 				</li>
+				{% for item in site.nav %}
+					<li class="toggle">
+						<a href="{{ item.url }}" class="flip" title="{{ item.title }}"> {{ item.title }} </a>
+					</li>
+				{% endfor %}
 			</ul>
 		</nav>
 		<div class="jumbotron centered-wrapper">
@@ -50,7 +50,7 @@
 	<!-- <div class="container">{{ content }}</div> -->
 	<script type="text/javascript" src="/assets/js/calendar.js"></script>
 	<script type="text/javascript">
-		Calendar({id: '#calendar'});
+		Calendar({id: '#calendar',animated: true});
 	</script>
 </body>
 </html>

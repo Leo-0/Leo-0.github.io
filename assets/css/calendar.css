@@ -3,6 +3,7 @@
 	min-width: 220px;
 	max-width: 250px;
 	border: 1px solid #ddd;
+	color: #F6FEA1;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -36,7 +37,7 @@
 	width: 0;
 	height: 0;
 	border-top: 5px solid transparent;
-	border-right: 10px solid black;
+	border-right: 10px solid #F08E6B;
 	border-bottom: 5px solid transparent;
 	visibility: hidden;
 }
@@ -44,7 +45,7 @@
 	width: 0;
 	height: 0;
 	border-top: 5px solid transparent;
-	border-left: 10px solid black;
+	border-left: 10px solid #F08E6B;
 	border-bottom: 5px solid transparent;
 	visibility: hidden;
 }
@@ -55,7 +56,7 @@
 .calendar>.calheader>.ym>.calbtn.totoday {
 	width: 0;
 	height: 0;
-	border: 5px solid black;
+	border: 5px solid #F08E6B;
 	border-radius: 100%;
 }
 .calendar>.calheader>.week>span, .calendar>.date>.days>span {
@@ -67,7 +68,7 @@
 	box-sizing: border-box;
 }
 .calendar>.calheader>.week>.weekend,.calendar>.date>.days>.weekend {
-	color: red;
+	color: #F08E6B;
 }
 .calendar>.date {
 	overflow: hidden;
@@ -80,11 +81,11 @@
 	box-sizing: border-box;
 }
 .calendar>.date>.days>.today {
-	border: 1px solid rgb(95,174,254);
+	border: 1px solid rgb(255,178,112);
 	color: white;
-	background: rgba(95,174,254,.6);
+	background: rgba(255,178,112,.6);
 }
 .calendar>.date>.days>.nottoday {
-	border: 1px solid #1570DF;
+	border: 1px solid rgb(255,178,112);
 	border-style: dotted;
 }
