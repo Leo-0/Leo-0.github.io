@@ -7,6 +7,7 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+	background-color: rgba(0,0,0,.5);
 }
 .calendar>.calheader,
 .calendar>.calheader>.ym,
