@@ -1,0 +1,129 @@
+@font-face {
+	font-family: digital;
+	src: url('/assets/fonts/digital.eot'),
+		 url('/assets/fonts/digital.svg'),
+		 url('/assets/fonts/digital.ttf'),
+		 url('/assets/fonts/digital.woff'),
+		 url('/assets/fonts/digital.woff2');
+}
+.tWrapper {
+	display: inline-block;
+	width: 120px;
+	padding: 10px 10px;
+	font-family: digital;
+	font-weight: bold;
+	font-size: 30px;
+	letter-spacing: 2px;
+	text-align: center;
+	background-color: #7FB414;
+	position: relative;
+	border-radius: 6px;
+}
+.tWrapper .tBg {
+	width: 100%;
+	color: #B9BCA8;
+}
+.tWrapper .tFg {
+	position: absolute;
+	top: 10px;
+	left: 0;
+	width: 100%;
+	color: #E5F9BD;
+	z-index: 10;
+}
+@keyframes blink
+{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@-moz-keyframes blink /* Firefox */
+{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@-webkit-keyframes blink /* Safari 和 Chrome */
+{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@-o-keyframes blink /* Opera */
+{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+.tWrapper .tFg .tHour:after,
+.tWrapper .tFg .tMinute:after {
+	content: ':';
+	display: inline;
+	animation: blink 1s infinite;
+	-moz-animation: blink 1s infinite;	/* Firefox */
+	-webkit-animation: blink 1s infinite;	/* Safari 和 Chrome */
+	-o-animation: blink 1s infinite;	/* Opera */
+}
+.tWrapper .whensay {
+	position: absolute;
+	font-size: 20px;
+	padding: 10px 7px;
+	width: 220px;
+	line-height: 1.2;
+	white-space: pre-wrap;
+	text-align: center;
+	border-radius: 6px;
+	background-color: #F6FEA1;
+	color: #F08E6B;
+	display: none;
+}
+.tWrapper .whensay.up:after {
+	content: ' ';
+	width: 0;
+	height: 0;
+	display: block;
+	border-top: 10px solid #F6FEA1;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	position: absolute;
+	bottom: -10px;
+	left: calc(50% - 5px);
+}
+.tWrapper .whensay.down:after {
+	content: ' ';
+	width: 0;
+	height: 0;
+	display: block;
+	border-bottom: 10px solid #F6FEA1;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	position: absolute;
+	top: -10px;
+	left: calc(50% - 5px);
+}
+.tWrapper .whensay.left:after {
+	content: ' ';
+	width: 0;
+	height: 0;
+	display: block;
+	border-top: 5px solid transparent;
+	border-left: 10px solid #F6FEA1;
+	border-bottom: 5px solid transparent;
+	position: absolute;
+	top: calc(50% - 5px);
+	right: -10px;
+}
+.tWrapper .whensay.right:after {
+	content: ' ';
+	width: 0;
+	height: 0;
+	display: block;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-right: 10px solid #F6FEA1;
+	position: absolute;
+	top: calc(50% - 5px);
+	left: -10px;
+}
+.tWrapper .whensay.show {
+	display: block;
+}
