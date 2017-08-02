@@ -1,31 +1,40 @@
-<!-- linxiaowu -->
 <!DOCTYPE html>
 <html lang="en">
 {% include head.html %}
 <body>
-	<header>
-		<nav>
-			{% if site.brand.url %}
-				<div class="brand">
-					<a href="/">
-						<img src="{{ site.brand.url }}" />
-						{% if site.brand.addname %}
-							<span>{{ site.author.name }}</span>
-						{% endif %}
-					</a>
-				</div>
-			{% endif %}
-			<ul>
-				<li>
-					<input class="search" id="search-input" type="text" placeholder="搜索" />
+	<nav class="navbar">
+		{% if site.brand.url %}
+			<div class="brand">
+				<a href="/">
+					<img src="{{ site.brand.url }}" />
+					{% if site.brand.addname %}
+						<span>{{ site.author.name }}</span>
+					{% endif %}
+				</a>
+			</div>
+		{% endif %}
+		<ul class="menu">
+			<li>
+				<input class="search" id="search-input" type="text" placeholder="搜索" />
+			</li>
+			{% for item in site.nav %}
+				<li class="flip-wrapper">
+					<a href="{{ item.url }}" class="flip" title="{{ item.title }}"> {{ item.title }} </a>
 				</li>
-				{% for item in site.nav %}
-					<li class="toggle">
-						<a href="{{ item.url }}" class="flip" title="{{ item.title }}"> {{ item.title }} </a>
-					</li>
-				{% endfor %}
-			</ul>
-		</nav>
+			{% endfor %}
+		</ul>
+		<div class="avatar circle">
+			<a href="/">
+				<img src="{{ site.author.avatar }}" title="{{ site.author.name }}">
+			</a>
+		</div>
+		<div class="navbar-toggle" onclick="showNavbar()">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</div>
+	</nav>
+	<header class="header">
 		<div class="jumbotron centered-wrapper">
 			<div class="items centered-wrapper centered">
 				<div class="avatar circle centered">
@@ -43,14 +52,42 @@
 				</div>
 			</div>
 			<div id="calendar"></div>
+			<div id="time" class="right"></div>
 		</div>
-
-		<!-- <div class="time" id="time"></div> -->
 	</header>
 	<!-- <div class="container">{{ content }}</div> -->
 	<script type="text/javascript" src="/assets/js/calendar.js"></script>
+	<script type="text/javascript" src="/assets/js/time.js"></script>
 	<script type="text/javascript">
+		function controlBgCal() {
+			var d = new Date();
+			if(d.getHours() === 0 && d.getMinutes()===0&&d.getSeconds()===0) {
+				Calendar({id: '#calendar',animated: true});
+			}
+			var hd = document.querySelector('.header');
+			if(d.getHours()>=6 && d.getHours()<13) {
+				hd.style.backgroundImage="url('/images/green.jpg')";
+			} else if(d.getHours()>=13 && d.getHours()<17) {
+				hd.style.backgroundImage="url('/images/dusk.jpg')";
+			} else {
+				hd.style.backgroundImage="url('/images/night.png')";
+			}
+		}
 		Calendar({id: '#calendar',animated: true});
+		window.onresize = function() {
+			Calendar({id: '#calendar',animated: true});
+		}
+		Time({id: '#time', callback: controlBgCal()});
+	</script>
+	<script type="text/javascript">
+		function showNavbar() {
+			var ele = document.querySelector('.navbar');
+			if(ele.className.indexOf('show')!==-1) {
+				ele.className = ele.className.replace(/\sshow/g,'');
+			} else {
+				ele.className += ' show';
+			}
+		}
 	</script>
 </body>
 </html>
