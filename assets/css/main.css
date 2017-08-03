@@ -66,11 +66,14 @@ a {
 |*       nav start        *|
 |**************************/
 .navbar {
+	position: absolute;
 	padding: 0 24px;
-	box-shadow: 0px 2px 5px #2D2D2D;
+	width: 100%;
 	height: 60px;
-	background-color: #F6FEA1;
-	position: relative;
+	background-color: transparent;
+	box-shadow: none;
+	box-sizing: border-box;
+	z-index: 99;
 	*zoom: 1;
 }
 .navbar:after {
@@ -82,20 +85,35 @@ a {
 	visibility: hidden;
 	clear: both;
 }
-@media screen and (max-width: 960px) {
+.navbar.scrolling {
+	position: fixed;
+	background-color: #F6FEA1;
+	box-shadow: 0px 2px 5px #2D2D2D;
+	-webkit-animation: fadeInDown 1s both;
+	-o-animation: fadeInDown 1s both;
+	animation: fadeInDown 1s both;
+}
+@keyframes fadeInDown {
+	0% {
+	    opacity: 0;
+	    -webkit-transform: translate3d(0, -100%, 0);
+	    transform: translate3d(0, -100%, 0);
+	}
+	100% {
+	    opacity: 1;
+	    -webkit-transform: none;
+	    transform: none;
+	}
+}
+@media screen and (max-width: 768px) {
 	.navbar {
 		position: fixed;
 		top: 0;
 		right: -600px;
 		width: 300px;
 		height: 100%;
-		padding: 0;
-		box-sizing: border-box;
-		-webkit-transition: .8s;
-		-moz-transition: .8s;
-		-o-transition: .8s;
-		transition: .8s;
-		z-index: 100;
+		padding: 5px 0;
+		background-color: #F6FEA1;
 	}
 	.navbar.show {
 		right: 0;
@@ -122,7 +140,7 @@ a {
 	margin-top: 10px;
 	font-size: 1.25em;/*20px*/
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
 	.navbar .brand {
 		height: 60px;
 	}
@@ -131,7 +149,7 @@ a {
 	font-family: 'Helvetica', 'Arial', 'Sans-Serif';
 	float: right;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
 	.navbar .menu {
 		width: 100%;
 		margin-top: 130px;
@@ -141,7 +159,7 @@ a {
 	display: inline-block;
 	line-height: 60px;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
 	.navbar .menu li {
 		display: block;
 		height: 40px;
@@ -157,7 +175,7 @@ a {
 	color: #F08E6B;
 	font-weight: bold;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
 	.navbar .menu li>a {
 		display: block;
 	}
@@ -182,7 +200,7 @@ a {
 	-ms-transform-origin: bottom;
 	transform-origin: bottom;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
 	.navbar .menu li.flip-wrapper a.flip {
 		top: 0;
 	}
@@ -206,7 +224,7 @@ a {
 	-ms-transform: rotateX(90deg) translate3d(0,-30px,30px);
 	transform: rotateX(90deg) translate3d(0,-30px,30px);
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
 	.navbar .menu li.flip-wrapper a.flip:after {
 		-webkit-transform: rotateX(90deg) translate3d(0,-20px,20px);
 		-ms-transform: rotateX(90deg) translate3d(0,-20px,20px);
@@ -240,7 +258,7 @@ a {
 	width: 160px;
 	border-color: #FFB270;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
 	.navbar .menu li input.search:focus {
 		width: 100%;
 	}
@@ -259,11 +277,12 @@ a {
 	width: 100%;
 	height: 100%;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
 	.navbar .avatar {
 		display: block;
 	}
 }
+/*   navbar toggle start  */
 .navbar .navbar-toggle {
 	display: none;
 	position: fixed;
@@ -276,7 +295,7 @@ a {
 	cursor: pointer;
 	z-index: 999;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
 	.navbar .navbar-toggle {
 		display: block;
 	}
@@ -296,6 +315,7 @@ a {
 .navbar .navbar-toggle .icon-bar+.icon-bar {
 	margin-top: 5px;
 }
+/*   navbar toggle end   */
 /**************************|
 |*        nav end         *|
 |**************************/
@@ -308,7 +328,13 @@ header {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
-	padding: 10px 24px;
+	padding: 70px 24px 10px 24px;
+	box-sizing: border-box;
+}
+@media screen and (max-width: 768px) {
+	header {
+		padding-top: 0;
+	}
 }
 /*     centered start     */
 .centered-wrapper {
@@ -356,19 +382,18 @@ header {
 	color: #F6FEA1;
 }
 .jumbotron .items .personalized {
-	width: 300px;
 	color: #F6FEA1;
 	font-weight: bold;
 	font-size: 1.25em;
 	letter-spacing: 1px;
 	border-top: 2px solid #F08E6B;
 	border-bottom: 2px solid #F08E6B;
-	padding: 10px 0;
+	padding: 10px 15px;
 }
 .jumbotron .items .personalized .signature {
 	padding: 5px 0;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 	.jumbotron .items .avatar {
 		width: 120px;
 		height: 120px;

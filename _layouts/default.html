@@ -67,7 +67,7 @@
 			var hd = document.querySelector('.header');
 			if(d.getHours()>=6 && d.getHours()<13) {
 				hd.style.backgroundImage="url('/images/green.jpg')";
-			} else if(d.getHours()>=13 && d.getHours()<17) {
+			} else if(d.getHours()>=13 && d.getHours()<18) {
 				hd.style.backgroundImage="url('/images/dusk.jpg')";
 			} else {
 				hd.style.backgroundImage="url('/images/night.png')";
@@ -86,6 +86,19 @@
 				ele.className = ele.className.replace(/\sshow/g,'');
 			} else {
 				ele.className += ' show';
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		window.onscroll = function() {
+			var t = document.documentElement.scrollTop || document.body.scrollTop;
+			var nav = document.querySelector('.navbar');
+			var w = document.body.clientWidth;
+			if(t >= 60 && w > 768 && nav.className.indexOf('scrolling') < 0) {
+				nav.className += ' scrolling';
+			}
+			if(t < 60) {
+				nav.className = nav.className.replace(/\sscrolling/g,'');
 			}
 		}
 	</script>

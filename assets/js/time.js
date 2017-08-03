@@ -141,7 +141,7 @@
 			}
 			timer = setTimeout(function() {
 				change(obj);
-			}, 1000)
+			}, 1000);
 		}
 		return change;
 	})();
