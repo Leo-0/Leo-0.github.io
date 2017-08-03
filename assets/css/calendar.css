@@ -61,6 +61,7 @@
 }
 .calendar>.calheader>.week>span, .calendar>.date>.days>span {
 	display: inline-block;
+	width: 14.2857%;
 	width: calc(100% / 7);
 	text-align: right;
 	margin: 0;

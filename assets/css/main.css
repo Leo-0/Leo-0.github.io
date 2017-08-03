@@ -66,7 +66,7 @@ a {
 |*       nav start        *|
 |**************************/
 .navbar {
-	padding: 0 10px;
+	padding: 0 24px;
 	box-shadow: 0px 2px 5px #2D2D2D;
 	height: 60px;
 	background-color: #F6FEA1;
@@ -254,14 +254,6 @@ a {
 	top: 60px;
 	left: 90px;
 }
-.navbar .avatar:after {
-	content: ' ';
-	width: 100%;
-	border: 1px solid #F08E6B;
-	margin: 5px 0;
-	position: absolute;
-	left: 0;
-}
 .navbar .avatar a img {
 	width: 100%;
 	height: 100%;
@@ -315,7 +307,7 @@ header {
 	background: url("/images/green.jpg") no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
-	/*6:00~13:00、 13:00~17:00、 17:00~6:00 */
+	padding: 10px 24px;
 }
 /*     centered start     */
 .centered-wrapper {
@@ -340,7 +332,8 @@ header {
 |**************************/
 .jumbotron {
 	width: 100%;
-	height: calc(100% - 57px);
+	height: 100%;
+	/*height: calc(100% - 57px);*/
 	min-height: 406px;
 	position: relative;
 }
@@ -394,7 +387,7 @@ header {
 	top: 150px;
 	left: 5%;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
 	.jumbotron #calendar {
 		display: none;
 	}
