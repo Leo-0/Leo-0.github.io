@@ -303,7 +303,8 @@ a {
 |**************************/
 header {
 	height: 100%;
-	background: url("/images/green.jpg") no-repeat;
+	background-image: url("/images/green.jpg");
+	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	padding: 10px 24px;
