@@ -19,7 +19,6 @@ author:
     avatar: '/images/whale.jpg' # your avatar url
 brand:  
     url: '/images/fight.gif' # brand url
-    addname: true # if true add author name else don't
 email:  leo_yanlin@163.com
 description: 
     学无止境，好好学习，天天向上。此为github pages + jekyll 搭建的博客
@@ -47,6 +46,10 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
+
+# Paginator
+paginate: 6
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
