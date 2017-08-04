@@ -2,60 +2,39 @@
 <html lang="en">
 {% include head.html %}
 <body>
-	<nav class="navbar">
-		{% if site.brand.url %}
-			<div class="brand">
-				<a href="/">
-					<img src="{{ site.brand.url }}" />
-					{% if site.brand.addname %}
-						<span>{{ site.author.name }}</span>
-					{% endif %}
-				</a>
-			</div>
-		{% endif %}
-		<ul class="menu">
-			<li>
-				<input class="search" id="search-input" type="text" placeholder="搜索" />
-			</li>
-			{% for item in site.nav %}
-				<li class="flip-wrapper">
-					<a href="{{ item.url }}" class="flip" title="{{ item.title }}"> {{ item.title }} </a>
-				</li>
-			{% endfor %}
-		</ul>
-		<div class="avatar circle">
-			<a href="/">
-				<img src="{{ site.author.avatar }}" title="{{ site.author.name }}">
-			</a>
-		</div>
-		<div class="navbar-toggle" onclick="showNavbar()">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</div>
-	</nav>
 	<header class="header">
-		<div class="jumbotron centered-wrapper">
-			<div class="items centered-wrapper centered">
-				<div class="avatar circle centered">
+		<nav class="navbar clearfix">
+			{% if site.brand.url %}
+				<div class="brand">
 					<a href="/">
-						<img src="{{ site.author.avatar }}" title="{{ site.author.name }}">
+						<img src="{{ site.brand.url }}" />
 					</a>
 				</div>
-				<div class="name">
-					<span>{{ site.author.name }}</span>
-				</div>
-				<div class="personalized">
-					{% for sign in site.personalized %}
-						<p class="signature">{{ sign.signature }}</p>
-					{% endfor %}
-				</div>
+			{% endif %}
+			<ul class="menu">
+				<li>
+					<input class="search" id="search-input" type="text" placeholder="搜索" />
+				</li>
+				{% for item in site.nav %}
+					<li class="flip-wrapper">
+						<a href="{{ item.url }}" class="flip" title="{{ item.title }}"> {{ item.title }} </a>
+					</li>
+				{% endfor %}
+			</ul>
+			<div class="avatar circle">
+				<a href="/">
+					<img src="{{ site.author.avatar }}" title="{{ site.author.name }}">
+				</a>
 			</div>
-			<div id="calendar"></div>
-			<div id="time" class="right"></div>
-		</div>
+			<div class="navbar-toggle" onclick="showNavbar()">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</div>
+		</nav>
 	</header>
-	<!-- <div class="container">{{ content }}</div> -->
+	{{ content }}
+	{% include footer.html %}
 	<script type="text/javascript" src="/assets/js/calendar.js"></script>
 	<script type="text/javascript" src="/assets/js/time.js"></script>
 	<script type="text/javascript">
@@ -64,13 +43,15 @@
 			if(d.getHours() === 0 && d.getMinutes()===0&&d.getSeconds()===0) {
 				Calendar({id: '#calendar',animated: true});
 			}
-			var hd = document.querySelector('.header');
-			if(d.getHours()>=6 && d.getHours()<13) {
-				hd.style.backgroundImage="url('/images/green.jpg')";
-			} else if(d.getHours()>=13 && d.getHours()<18) {
-				hd.style.backgroundImage="url('/images/dusk.jpg')";
-			} else {
-				hd.style.backgroundImage="url('/images/night.png')";
+			var hd = document.querySelector('.jumbotron-wrapper');
+			if(hd) {
+				if(d.getHours()>=6 && d.getHours()<13) {
+					hd.style.backgroundImage="url('/images/green.jpg')";
+				} else if(d.getHours()>=13 && d.getHours()<18) {
+					hd.style.backgroundImage="url('/images/dusk.jpg')";
+				} else {
+					hd.style.backgroundImage="url('/images/night.png')";
+				}
 			}
 		}
 		Calendar({id: '#calendar',animated: true});

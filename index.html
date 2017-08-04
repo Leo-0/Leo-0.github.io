@@ -1,19 +1,165 @@
 ---
 layout: default
 ---
-<nav class="categories">
-	<ul>
-		<li>
-			<a href="#">文章</a>
-		</li>
-		<li>
-			<a href="#">收藏夹</a>
-		</li>
-		<li>
-			<a href="#">相册</a>
-		</li>
-		<li>
-			<a href="#">标签</a>
-		</li>
-	</ul>
-</nav>
+<section class="jumbotron-wrapper">
+	<div class="jumbotron centered-wrapper">
+		<div class="items centered-wrapper centered">
+			<div class="avatar circle centered">
+				<a href="/">
+					<img src="{{ site.author.avatar }}" title="{{ site.author.name }}">
+				</a>
+			</div>
+			<div class="name">
+				<span>{{ site.author.name }}</span>
+			</div>
+			<div class="personalized">
+				{% for sign in site.personalized %}
+					<p class="signature">{{ sign.signature }}</p>
+				{% endfor %}
+			</div>
+		</div>
+		<div id="calendar"></div>
+		<div id="time" class="right"></div>
+	</div>
+</section>
+
+<section id="intro">
+	<div class="container clearfix">
+		<div class="content">
+			<div class="section-title">
+				<h2>关于此站</h2>
+				<p>在这里我会记录一些跟编程相关的知识，类似笔记，嗯，就是笔记，还会分享一些跟生活相关的事...</p>
+			</div>
+			<div class="section-content">
+				<p>
+					天地玄黄，宇宙洪荒。日月盈昃，辰宿列张。寒来暑往，秋收冬藏。闰余成岁，律吕调阳。云腾致雨，露结为霜。金生丽水，玉出昆冈。剑号巨阙，珠称夜光。果珍李柰，菜重芥姜。海咸河淡，鳞潜羽翔。龙师火帝，鸟官人皇。遐迩一体，率宾归王。鸣凤在竹，白驹食场。化被草木，赖及万方。盖此身发。四大五常。恭惟鞠养，岂敢毁伤。女慕贞洁，男效才良。
+				</p>
+			</div>
+		</div>
+		<div class="block">
+			<div class="section-image">
+				<img src="/images/wrapper-img.png" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="blog-preview">
+	<div class="container">
+		<div class="section-top-title">
+			<h2><i class="iconfont icon-iconfont-momarticle"></i>最新文章</h2>
+		</div>
+		<div class="pre-articles">
+			<ul class="clearfix">
+			{% for post in paginator.posts %}
+				<li>
+					<div class="hover-shadow">
+						<img class="pin-icon" src="/images/hongdtz.png">
+						<h2 class="post-title" title="{{ post.title }}"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+						<p class="excerpt">
+							{{ post.content | strip_html | strip_newlines | truncate: 120 }}&hellip;
+						</p>
+						<div class="post-meta clearfix">
+							<p class="post-time"><i class="iconfont icon-calendar"></i>{{ post.date |  date: "%Y-%m-%d" }}</p>
+							<p class="tag-text"><a href="#"><i class="iconfont icon-tag"></i>{{ post.tags }}</a></p>
+						</div>
+						<div class="read-full clearfix"><a href="{{ post.url }}">阅读全文 » </a></div>
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="section-bottom read-more"><a href="#" class="section-btn read-more-btn">阅读更多</a></div>
+	</div>
+</section>
+
+<section id="images-preview">
+	<div class="container">
+		<div class="section-top-title">
+			<h2><i class="iconfont icon-xiangce"></i>图片预览</h2>
+		</div>
+		<div class="images-container">
+			<ul class="images-list clearfix">
+				<li class="img-li-item">
+					<img src="/images/1501828304569.jpg">
+				</li>
+				<li class="img-li-item">
+					<img src="/images/1501828304569.jpg">
+				</li>
+				<li class="img-li-item">
+					<img src="/images/1501828304569.jpg">
+				</li>
+				<li class="img-li-item">
+					<img src="/images/1501828304569.jpg">
+				</li>
+				<li class="img-li-item">
+					<img src="/images/1501828304569.jpg">
+				</li>
+				<li class="img-li-item">
+					<img src="/images/1501828304569.jpg">
+				</li>
+			</ul>
+		</div>
+		<div class="section-bottom"><a href="#" class="section-btn">查看更多</a></div>
+	</div>
+</section>
+<section id="collection">
+	<div class="container">
+		<div class="section-top-title">
+			<h2><i class="iconfont icon-newlisticon23"></i>我的收藏</h2>
+		</div>
+		<div class="collection-container">
+			<ul class="collection-list clearfix">
+				<li class="coll-li-item">
+					<a href="#">
+						<img src="/images/wrapper-img.png" class="website-icon">
+						<div class="overlay centered-wrapper">
+							<p class="centered">这是个好网站</p>
+						</div>
+					</a>
+				</li>
+				<li class="coll-li-item">
+					<a href="#">
+						<img src="/images/wrapper-img.png" class="website-icon">
+						<div class="overlay centered-wrapper">
+							<p class="centered">这是个好网站</p>
+						</div>
+					</a>
+				</li>
+				<li class="coll-li-item">
+					<a href="#">
+						<img src="/images/wrapper-img.png" class="website-icon">
+						<div class="overlay centered-wrapper">
+							<p class="centered">这是个好网站</p>
+						</div>
+					</a>
+				</li>
+				<li class="coll-li-item">
+					<a href="#">
+						<img src="/images/wrapper-img.png" class="website-icon">
+						<div class="overlay centered-wrapper">
+							<p class="centered">这是个好网站</p>
+						</div>
+					</a>
+				</li>
+				<li class="coll-li-item">
+					<a href="#">
+						<img src="/images/wrapper-img.png" class="website-icon">
+						<div class="overlay centered-wrapper">
+							<p class="centered">这是个好网站</p>
+						</div>
+					</a>
+				</li>
+				<li class="coll-li-item">
+					<a href="#">
+						<img src="/images/wrapper-img.png" class="website-icon">
+						<div class="overlay centered-wrapper">
+							<p class="centered">这是个好网站</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="section-bottom"><a href="#" class="section-btn">更多收藏</a></div>
+	</div>
+</section>
