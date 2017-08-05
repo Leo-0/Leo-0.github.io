@@ -1,8 +1,46 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
-<p class="meta">{{ page.date | date_to_string }}</p>
-<div class="post">
-  {{ content }}
+<section class="jumbotron-wrapper small">
+	<div class="jumbotron centered-wrapper">
+		<div class="items centered-wrapper centered">
+			<div class="avatar circle centered">
+				<a href="/">
+					<img src="{{ site.author.avatar }}" title="{{ site.author.name }}">
+				</a>
+			</div>
+			<div class="name">
+				<span>{{ site.author.name }}</span>
+			</div>
+		</div>
+		<div id="time" style="display: none;"></div>
+	</div>
+</section>
+<div class="container">
+	<article>
+		<div class="article-top">
+			{% if page.img %}
+			<div class="article-img">
+				<img src="{{ "/images/" | append: page.img }}" alt="{{ page.title }}">
+			</div>
+			{% endif %}
+			<div class="article-title">
+				<h1 class="post-title">{{ page.title }}</h1>
+			</div>
+			<div class="article-info">
+				<div class="post-date post-time"><i class="iconfont icon-calendar"></i>{{ page.date | date: "%Y-%m-%d" }}</div>
+				<div class="post-tags tag-text">
+					<i class="iconfont icon-tags"></i>
+					{% for tag in page.tags %}
+					<a href="#" class="tag">
+						{{ tag }}
+					</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="post-content">
+			{{ page.content | markdownify }}
+		</div>
+	</article>
 </div>
