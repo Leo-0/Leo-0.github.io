@@ -20,18 +20,20 @@
 			this.counter = null;
 			this.date = new Date();
 			this.ele = document.querySelector(this.id);
-			this.ele.innerHTML = '';
-			this.calId = 'cal' + this.date.getTime();
-			this.cal = document.createElement('div');
-			this.cal.id = this.calId;
-			this.cal.className = 'calendar';
-			this.ele.appendChild(this.cal);
-			this.hId = 'yearmonth' + this.date.getTime();
-			this.yId = 'year' + this.date.getTime();
-			this.mId = 'month' + this.date.getTime();
-			this.wId = 'weekday' + this.date.getTime();
-			this._renderHeader(this.date.getFullYear(), this.date.getMonth() + 1, this.hId, this.yId, this.mId, this.wId);
-			this._renderPage(this.date.getFullYear(), this.date.getMonth() + 1);
+			if (this.ele) {
+				this.ele.innerHTML = '';
+				this.calId = 'cal' + this.date.getTime();
+				this.cal = document.createElement('div');
+				this.cal.id = this.calId;
+				this.cal.className = 'calendar';
+				this.ele.appendChild(this.cal);
+				this.hId = 'yearmonth' + this.date.getTime();
+				this.yId = 'year' + this.date.getTime();
+				this.mId = 'month' + this.date.getTime();
+				this.wId = 'weekday' + this.date.getTime();
+				this._renderHeader(this.date.getFullYear(), this.date.getMonth() + 1, this.hId, this.yId, this.mId, this.wId);
+				this._renderPage(this.date.getFullYear(), this.date.getMonth() + 1);
+			}
 			return this;
 		},
 		_isLeapYear: function(year) {
@@ -136,7 +138,7 @@
 			date.className = 'date';
 			this.cal.appendChild(date);
 			this._util._addEvent(this.cal, 'click', function(evt) {
-				var e = evt || event;
+				var e = evt || window.event;
 				var tar = e.srcElement || e.target;
 				if (!that.counter) {
 					if (tar.className.indexOf('pre') !== -1) {

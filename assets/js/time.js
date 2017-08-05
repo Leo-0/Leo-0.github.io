@@ -37,8 +37,10 @@
 			this.callback = _option.callback || _default.callback;
 			this.ele = document.querySelector(this.id);
 			this.counter = null;
-			this.tSet();
-			this.tStart();
+			if (this.ele) {
+				this.tSet();
+				this.tStart();
+			}
 			return this;
 		},
 		tSet: function() {
@@ -132,6 +134,7 @@
 	var hide = (function() {
 		var timer;
 		var i = 0;
+
 		function change(obj) {
 			i++;
 			if (i === 10) {
