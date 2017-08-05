@@ -11,12 +11,12 @@
 					</a>
 				</div>
 			{% endif %}
-			<ul class="menu">
-				<li>
+			<ul class="menu" onclick="go()">
+				<li class="menu-item">
 					<input class="search" id="search-input" type="text" placeholder="搜索" />
 				</li>
 				{% for item in site.nav %}
-					<li class="flip-wrapper">
+					<li class="menu-item flip-wrapper">
 						<a href="{{ item.url }}" class="flip" title="{{ item.title }}"> {{ item.title }} </a>
 					</li>
 				{% endfor %}
@@ -33,55 +33,9 @@
 			</div>
 		</nav>
 	</header>
+	<div class="to-top" onclick="backToTop()"></div>
 	{{ content }}
 	{% include footer.html %}
-	<script type="text/javascript" src="/assets/js/calendar.js"></script>
-	<script type="text/javascript" src="/assets/js/time.js"></script>
-	<script type="text/javascript">
-		function controlBgCal() {
-			var d = new Date();
-			if(d.getHours() === 0 && d.getMinutes()===0&&d.getSeconds()===0) {
-				Calendar({id: '#calendar',animated: true});
-			}
-			var hd = document.querySelector('.jumbotron-wrapper');
-			if(hd) {
-				if(d.getHours()>=6 && d.getHours()<13) {
-					hd.style.backgroundImage="url('/images/green.jpg')";
-				} else if(d.getHours()>=13 && d.getHours()<18) {
-					hd.style.backgroundImage="url('/images/dusk.jpg')";
-				} else {
-					hd.style.backgroundImage="url('/images/night.png')";
-				}
-			}
-		}
-		Calendar({id: '#calendar',animated: true});
-		window.onresize = function() {
-			Calendar({id: '#calendar',animated: true});
-		}
-		Time({id: '#time', callback: controlBgCal()});
-	</script>
-	<script type="text/javascript">
-		function showNavbar() {
-			var ele = document.querySelector('.navbar');
-			if(ele.className.indexOf('show')!==-1) {
-				ele.className = ele.className.replace(/\sshow/g,'');
-			} else {
-				ele.className += ' show';
-			}
-		}
-	</script>
-	<script type="text/javascript">
-		window.onscroll = function() {
-			var t = document.documentElement.scrollTop || document.body.scrollTop;
-			var nav = document.querySelector('.navbar');
-			var w = document.body.clientWidth;
-			if(t >= 60 && w > 768 && nav.className.indexOf('scrolling') < 0) {
-				nav.className += ' scrolling';
-			}
-			if(t < 60) {
-				nav.className = nav.className.replace(/\sscrolling/g,'');
-			}
-		}
-	</script>
+	{% include script.html %}
 </body>
 </html>
