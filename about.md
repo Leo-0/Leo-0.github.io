@@ -1,6 +1,8 @@
 ---
-layout: page
-title: About
+layout: post
+date: 2017-08-06
+title: 关于
+tags: about
 permalink: /about/
 ---
 
