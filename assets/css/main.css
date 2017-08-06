@@ -547,10 +547,13 @@ section {
 .pre-menu-list .pre-post-meta {
 	padding: 10px 30px 10px;
 }
-.pre-menu-list .pre-post-meta .post-time,
-.pre-menu-list .pre-post-meta .tag-text {
-	float: left;
-	margin-right: 10px;
+.info {
+	display: inline-block;
+}
+.info+.info {
+	margin-left: 5px;
+	padding-left: 5px;
+	border-left: 1px solid #c1baba;
 }
 .post-time {
 	color: #A0E418;
@@ -570,7 +573,7 @@ section {
 	text-decoration: underline;
 }
 .hover-shadow:hover {
-	box-shadow: 4px 4px 10px #363535;
+	box-shadow: 2px 2px 10px #363535;
 }
 img.pin-icon {
 	position: absolute;
@@ -848,11 +851,6 @@ article blockquote p {
 	margin-bottom: 30px;
 	background-color: rgba(0, 0, 0, 0.09);
 	text-shadow: 0 1px 1px #fff;
-}
-.article-info .post-date,
-.article-info .post-tags {
-	display: inline-block;
-	margin-right: 10px;
 }
 .post-content {
 	padding-bottom: 30px;
