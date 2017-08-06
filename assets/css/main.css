@@ -407,7 +407,7 @@ section {
 }
 .jumbotron #time {
 	position: absolute;
-	top: 150px;
+	top: 165px;
 	left: 5%;
 }
 @media screen and (max-width: 768px) {
@@ -749,7 +749,7 @@ article p img.fr {
 }
 article p img.fl,
 article p img.fr {
-	max-width: 30%;
+	max-width: 40%;
 }
 article ul {
 	list-style-type: disc;
@@ -777,9 +777,10 @@ article code {
 article pre {
 	margin: .9em 40px 1.2em;
 	padding: 1em 2.5%;
-	background: #E8F2FB;
-	border: 1px solid #c9e1f6;
-	border-radius: 3px;
+	background: #272822;
+	border: 1px solid #66d9ef;
+	color: #f8f8f2;
+	border-radius: 5px;
 	font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 	font-size: .9em;
 	line-height: 1.3em;
@@ -810,6 +811,21 @@ article td {
 	font-size: .85em; 
 	border: 1px solid #363636;
 	padding: 5px 10px;
+}
+article pre table,
+article pre td {
+	margin: 0;
+	border: 0;
+	text-align: left;
+}
+article table pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	overflow: auto;
+}
+td.gutter {
+	border-right: 1px dotted #9B9696;
 }
 article blockquote {
 	margin: 10px 40px;
