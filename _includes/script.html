@@ -58,22 +58,48 @@
 	}
 </script>
 <script type="text/javascript">
+	function getAbsPos(ele) {
+		var actualLeft = ele.offsetLeft;
+		var actualTop = ele.offsetTop;
+		var cur = ele.offsetParent;
+		while(cur !== null) {
+			actualLeft += cur.offsetLeft;
+			actualTop += cur.offsetTop;
+			cur = cur.offsetParent;
+		}
+		return {
+			left: actualLeft,
+			top: actualTop
+		}
+	}
 	window.onscroll = function() {
 		var t = document.documentElement.scrollTop || document.body.scrollTop;
 		var nav = document.querySelector('.navbar');
 		var w = document.body.clientWidth;
-		if(t >= 60 && w > 768 && nav.className.indexOf('scrolling') < 0) {
-			nav.className += ' scrolling';
-		}
-		if(t < 60) {
-			nav.className = nav.className.replace(/\sscrolling/g,'');
+		if(nav) {
+			if(t >= 60 && w > 768 && nav.className.indexOf('scrolling') < 0) {
+				nav.className += ' scrolling';
+			}
+			if(t < 60) {
+				nav.className = nav.className.replace(/\sscrolling/g,'');
+			}
 		}
 		var totop = document.querySelector('.to-top');
-		if(t > 300 && totop.className.indexOf('show') < 0) {
-			totop.className += ' show';
+		if(totop) {
+			if(t > 300 && totop.className.indexOf('show') < 0) {
+				totop.className += ' show';
+			}
+			if(t < 300) {
+				totop.className = totop.className.replace(/\sshow/g,'');
+			}
 		}
-		if(t < 300) {
-			totop.className = totop.className.replace(/\sshow/g,'');
+		var introImg = document.querySelector('.intro-image');
+		var introWrapper = document.querySelector('#intro');
+		if(introImg && introWrapper) {
+			var top = getAbsPos(introWrapper).top;
+			if(t >= top && introImg.className.indexOf('show') < 0) {
+				introImg.className += ' show';
+			}
 		}
 	}
 </script>
