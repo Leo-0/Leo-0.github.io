@@ -473,9 +473,20 @@ section {
 }
 .intro-image {
 	padding: 10px;
+	overflow: hidden;
 }
 .intro-image img {
 	width: 100%;
+	opacity: 0;
+	margin-left: 100px;
+	border-radius: 6px;
+	-webkit-transition: opacity 1.6s, margin 1s;
+	-o-transition: opacity 1.6s, margin 1s;
+	transition: opacity 1.6s, margin 1s;
+}
+.intro-image.show img {
+	opacity: 1;
+	margin-left: 0;
 }
 /*intro end*/
 /*blog-preview start*/
@@ -635,12 +646,6 @@ img.pin-icon {
 	.collection-list .coll-li-item {
 		width: 33.3333333%;
 		width: calc(100% / 3);
-	}
-}
-@media (min-width: 992px) {
-	.img-pre-list .img-li-item,
-	.collection-list .coll-li-item {
-		width: 25%;
 	}
 }
 .coll-li-item a .overlay {
