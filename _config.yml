@@ -25,7 +25,7 @@ personalized:
 nav: 
     - {title: 首页, url: '/'}
     - {title: 关于, url: '/about'}
-    - {title: 文章, url: '/blog'}
+    - {title: 文章, url: '/archive'}
     - {title: 收藏夹, url: '/collection'}
     - {title: 相册, url: '/photo'}
     - {title: 标签, url: '/tag'}
