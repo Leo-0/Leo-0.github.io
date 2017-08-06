@@ -21,7 +21,7 @@ layout: default
 		<div class="article-top">
 			{% if page.img %}
 			<div class="article-img">
-				<img src="{{ "/images/" | append: page.img }}" alt="{{ page.title }}">
+				<img src="{{ '/images/' | append: page.img }}" alt="{{ page.title }}">
 			</div>
 			{% endif %}
 			<div class="article-title">
@@ -42,6 +42,6 @@ layout: default
 		<div class="post-content">
 			{{ page.content | markdownify }}
 		</div>
+		{% include readmore.html %}
 	</article>
-	{% include readmore.html %}
 </div>
