@@ -7,7 +7,7 @@
 			{% if site.brand.url %}
 				<div class="brand">
 					<a href="/">
-						<img src="{{ site.brand.url }}" />
+						<img src="{{ site.brand.url }}" alt="{{ site.title }}" />
 					</a>
 				</div>
 			{% endif %}
@@ -23,7 +23,7 @@
 			</ul>
 			<div class="avatar circle">
 				<a href="/">
-					<img src="{{ site.author.avatar }}" title="{{ site.author.name }}">
+					<img src="{{ site.author.avatar }}" title="{{ site.author.name }}" alt="{{ site.author.name }}">
 				</a>
 			</div>
 			<div class="navbar-toggle" onclick="showNavbar()">
