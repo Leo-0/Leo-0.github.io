@@ -9,6 +9,13 @@ description:
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
+defaults:
+  - 
+   scope:
+      path: "images/albums"
+   values:
+      album: true
+
 # Social settings
 github_username: Leo-0
 email: leo_yanlin@163.com
