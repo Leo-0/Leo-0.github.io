@@ -38,7 +38,7 @@
 		init: function(option) {
 			var _default = {
 				pSelector: '',
-				itemSelector: '',
+				itemSelector: ''
 			};
 			var opt = option;
 			this.pSelector = opt.pSelector || _default.pSelector;
