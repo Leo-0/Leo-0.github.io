@@ -53,9 +53,9 @@ layout: default
 			<h2 class="top-title"><i class="iconfont icon-iconfont-momarticle"></i>最新文章</h2>
 		</div>
 		<div class="pre-articles">
-			<ul class="pre-articles-menu clearfix">
+			<ul class="pre-articles-menu clearfix wwf">
 			{% for post in paginator.posts %}
-				<li class="pre-menu-list">
+				<li class="pre-menu-list wwf-li">
 					<div class="list-items hover-shadow">
 						<img class="pin-icon" src="/images/hongdtz.png">
 						<h2 class="pre-post-title" title="{{ post.title }}"><a href="{{ post.url }}">{{ post.title }}</a></h2>
@@ -108,7 +108,7 @@ layout: default
 				</li>
 			</ul>
 		</div>
-		<div class="section-bottom"><a href="#" class="section-btn">查看更多</a></div>
+		<div class="section-bottom"><a href="/photo" class="section-btn">查看更多</a></div>
 	</div>
 </section>
 <!-- images preview end -->
