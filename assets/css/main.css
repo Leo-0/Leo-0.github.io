@@ -615,12 +615,13 @@ img.pin-icon {
 .collection-list .coll-li-item  {
 	float: left;
 	padding: 15px;
-	width: 100%;
+	text-align: center;
 }
 .img-li-item img,
 .coll-li-item a img {
 	display: block;
-	width: 100%;
+	max-width: 100%;
+	display: inline-block;
 }
 #collection {
 	background-image: url("/images/1501828259615.jpg");
@@ -707,6 +708,7 @@ article {
 	margin-top: 60px;
 	box-shadow: 2px 2px 10px #6F6C6C;
 	padding-bottom: 60px;
+	background-image: url("/images/grey.jpg");
 }
 article h1 {
 	font-size: 2.5em;
@@ -806,7 +808,7 @@ article pre {
 	font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
 	font-size: .9em;
 	line-height: 1.3em;
-	overflow: scroll;
+	overflow: auto;
 }
 article pre code {
 	padding: 0;
@@ -853,7 +855,7 @@ td.gutter {
 article blockquote {
 	margin: 10px 40px;
 	border-left: 5px solid #5B5A5A;
-	background-color: #E6E6E3;
+	background-color: #f9f9f0;
 }
 article blockquote p {
 	padding: 10px;
