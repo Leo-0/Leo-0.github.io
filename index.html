@@ -87,25 +87,13 @@ layout: default
 			<h2 class="top-title"><i class="iconfont icon-xiangce"></i>图片预览</h2>
 		</div>
 		<div class="imgpre-container">
-			<ul class="img-pre-list clearfix">
-				<li class="img-li-item">
-					<img src="/images/1501828304569.jpg" alt="img">
+			<ul class="img-pre-list clearfix wwf">
+			{% assign imgs = site.static_files | where: "album", true | sample: 6 %}
+			{% for img in imgs %}
+				<li class="img-li-item wwf-li">
+					<img src="{{ img.path }}" alt="{{ img.name }}">
 				</li>
-				<li class="img-li-item">
-					<img src="/images/1501828304569.jpg" alt="img">
-				</li>
-				<li class="img-li-item">
-					<img src="/images/1501828304569.jpg" alt="img">
-				</li>
-				<li class="img-li-item">
-					<img src="/images/1501828304569.jpg" alt="img">
-				</li>
-				<li class="img-li-item">
-					<img src="/images/1501828304569.jpg" alt="img">
-				</li>
-				<li class="img-li-item">
-					<img src="/images/1501828304569.jpg" alt="img">
-				</li>
+			{% endfor %}
 			</ul>
 		</div>
 		<div class="section-bottom"><a href="/photo" class="section-btn">查看更多</a></div>
