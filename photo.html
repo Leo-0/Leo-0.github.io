@@ -1,7 +1,7 @@
 ---
 layout: album
 ---
-<div class="container">
+<!-- <div class="container">
 {% assign image_files = site.static_files | where: "album", true %}
 {% assign temp = null %}
 {% assign same = false %}
@@ -24,5 +24,12 @@ layout: album
 {% endif %}
 {% endfor %}
 </div>
-{% include footer.html %}
-{% include script.html %}
+ -->
+ <div class="album-container">
+ {% assign image_files = site.static_files | where: "album", true %}
+ {% for img in image_files %}
+ <div>
+ 	<img src="{{ img.path }}" alt="">
+ </div>
+ {% endfor %}
+</div>
