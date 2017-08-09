@@ -3,7 +3,7 @@ author:
     name: Leo-0 # your name
     avatar: '/images/whale.jpg' # your avatar url
 brand:  
-    url: '/images/fight.gif' # brand url
+    url: '/images/Leo-0.png' # brand url
 description: 
     学无止境，好好学习，天天向上。此为github pages + jekyll 搭建的博客
 baseurl: "" # the subpath of your site, e.g. /blog
