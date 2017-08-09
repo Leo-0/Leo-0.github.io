@@ -4,7 +4,6 @@ $(function() {
 	var $builtTime = $('.built-time');
 	var $pre = $('#img_pre');
 	var $next = $('#img_next');
-	var $loading = $('#loading');
 	var loaded = false;
 	var $wall = $('.photo-wall');
 	var $kids;
@@ -42,7 +41,6 @@ $(function() {
 		if ($kids) {
 			$kids.detach();
 		}
-		$loading.show();
 		$imgs = $imgwrapper.find('img');
 		$imgslen = $imgs.length;
 		$kidWidth = Math.round($wall.width() / col);
@@ -96,7 +94,6 @@ $(function() {
 			}
 		});
 		if (loaded) {
-			$loading.hide();
 			calImgMiddlepos(wrapperWidth, wrapperHeight, imgsrc);
 			var posarr = shuffle(positionsArray.slice(0));
 			var index = 0;
@@ -138,7 +135,6 @@ $(function() {
 			return;
 		}
 		setflag();
-		$loading.show();
 		loaded = false;
 		--current;
 		if (current < 0)
@@ -156,7 +152,6 @@ $(function() {
 			return;
 		}
 		setflag();
-		$loading.show();
 		loaded = false;
 		++current;
 		if (current > $imgslen - 1)
