@@ -1,22 +1,25 @@
 $(function() {
+	var $albumName = $('.album-name');
+	var $imgName = $('.img-name');
+	var $builtTime = $('.built-time');
 	var $pre = $('#img_pre');
 	var $next = $('#img_next');
-	var $loading = $('.loading');
-	var loaded = 0;
+	var $loading = $('#loading');
+	var loaded = false;
 	var $wall = $('.photo-wall');
 	var $kids;
+	var $len = 0; // $kids length
 	var col = 6;
 	var row = 4;
 	var wrapperWidth, wrapperHeight;
 	var $kidWidth, $kidHeight;
 	var $imgwrapper = $('.album-container');
-	var $imgs = $imgwrapper.find('img');
-	var $len = $imgs.length;
-	var srcs = new Array($len);
+	var $imgs;
+	var $imgslen;
 	var imgSize = [];
 	var clickflag = false;
 	var current = 0;
-	var positionsArray = [];
+	var positionsArray = []; // 使每个$kid块设置背景时间不同
 	var curPos = function() {
 		this.x = [];
 		this.y = [];
@@ -27,14 +30,11 @@ $(function() {
 			this.y[i] = 0;
 		}
 	};
-	var space_w, space_h;
+	var cur_pos = new curPos(); // 当前背景位置
 	var mouse_down = false;
 	var mouseX = 0,
 		mouseY = 0;
-	var dx = 0,
-		dy = 0;
-	var cur_pos = new curPos();
-	var middle_posx = 0,
+	var middle_posx = 0, //  计算使背景居中需要的偏移量
 		middle_posy = 0;
 	var imgsrc;
 
@@ -42,125 +42,153 @@ $(function() {
 		if ($kids) {
 			$kids.detach();
 		}
+		$loading.show();
+		$imgs = $imgwrapper.find('img');
+		$imgs.each(function(index, el) {
+			$(el).parent('.thumbnail').on('click', function() {
+				if ($(window).width() <= 480) {
+					$('.main').stop().animate({
+						'right': '-100%'
+					});
+					$('body').addClass('full');
+					init();
+					$('.navbar-toggle').show();
+				}
+				current = index;
+				imgsrc = $imgs[current].getAttribute('data-path');
+				var info = {
+					aName: $imgs[current].getAttribute('data-album'),
+					iName: $imgs[current].getAttribute('data-name'),
+					bTime: $imgs[current].getAttribute('data-time')
+				}
+				loaded = false;
+				loadImg(imgsrc, info, start);
+			});
+		});
+		$imgslen = $imgs.length;
 		$kidWidth = Math.round($wall.width() / col);
 		$kidHeight = Math.round($wall.height() / row);
 		appendKids($wall, col, row);
+		$kids = $wall.find('div.wall-kid');
+		$len = $kids.length;
 		wrapperWidth = $kidWidth * col;
 		wrapperHeight = $kidHeight * row;
 		cur_pos.init();
 		initPositionArr();
-		if (loaded === $len) {
-			start();
-		} else {
-			$imgs.each(function() {
-				var $this = $(this);
-				$('<img/>').load(function() {
-					srcs[loaded] = $this.attr('src');
-					imgSize[$this.attr('src')] = {
-						width: $this.width(),
-						height: $this.height()
-					};
-					++loaded;
-					if (loaded === $len)
-						start();
-				}).error(function() {
-					srcs[loaded] = $this.attr('src');
-					imgSize[$this.attr('src')] = {
-						width: $this.width(),
-						height: $this.height()
-					};
-					++loaded;
-					if (loaded === $len)
-						start();
-				}).attr('src', $this.attr('src'));
+		imgsrc = $imgs[current].getAttribute('data-path');
+		var info = {
+			aName: $imgs[current].getAttribute('data-album'),
+			iName: $imgs[current].getAttribute('data-name'),
+			bTime: $imgs[current].getAttribute('data-time')
+		}
+		loadImg(imgsrc, info, start);
+	}
+
+	function loadImg(src, info, callback) {
+		$('<img/>').load(function() {
+			imgSize[src] = {
+				width: this.width,
+				height: this.height
+			};
+			$albumName.text(info.aName);
+			$imgName.text(info.iName);
+			$builtTime.text(info.bTime);
+			loaded = true;
+			(callback && typeof callback === 'function') && callback(); //检测函数存在且是一个函数然后再调用
+		}).error(function() {
+			imgSize[src] = {
+				width: this.width,
+				height: this.height
+			};
+			$albumName.text(info.aName);
+			$imgName.text(info.iName);
+			$builtTime.text(info.bTime);
+			loaded = false;
+			(callback && typeof callback === 'function') && callback();
+		}).attr('src', src);
+	}
+
+	function start() {
+		$imgs.each(function(index, el) {
+			if (index === current) {
+				$(el).parent('.thumbnail').addClass('focus');
+			} else {
+				$(el).parent('.thumbnail').removeClass('focus');
+			}
+		});
+		if (loaded) {
+			$loading.hide();
+			calImgMiddlepos(wrapperWidth, wrapperHeight, imgsrc);
+			var posarr = shuffle(positionsArray.slice(0));
+			var index = 0;
+			var l = $kids.length;
+			$kids.each(function(i) {
+				var $kid = $(this);
+				var d = Math.random() > 0.5 ? true : false;
+				if (d) {
+					$kid.css({
+						'transform': 'rotateY(180deg)'
+					});
+				} else {
+					$kid.css({
+						'transform': 'rotateX(180deg)'
+					});
+				}
+				setTimeout(function() {
+					setBackground($kid, i);
+					if (d) {
+						$kid.css({
+							'transform': 'rotateY(0)'
+						});
+					} else {
+						$kid.css({
+							'transform': 'rotateX(0)'
+						});
+					}
+					index++;
+					if (index === l && clickflag) {
+						setflag();
+					}
+				}, posarr.shift() * 25);
 			});
 		}
 	}
+
 	$pre.bind('click', function() {
 		if (clickflag) {
 			return;
 		}
 		setflag();
+		$loading.show();
+		loaded = false;
 		--current;
 		if (current < 0)
-			current = $len - 1;
-		imgsrc = srcs[current];
-		calImgMiddlepos(wrapperWidth, wrapperHeight, imgsrc);
-		var posarr = shuffle2(positionsArray.slice(0));
-		var index = 0;
-		var l = $kids.length;
-		$kids.each(function(i) {
-			var t = $(this);
-			var d = Math.random() > 0.5 ? true : false;
-			if (d) {
-				t.css({
-					'transform': 'rotateY(360deg)'
-				});
-			} else {
-				t.css({
-					'transform': 'rotateX(360deg)'
-				});
-			}
-			setTimeout(function() {
-				setBackground(t, i);
-				if (d) {
-					t.css({
-						'transform': 'rotateY(0)'
-					});
-				} else {
-					t.css({
-						'transform': 'rotateX(0)'
-					});
-				}
-				index++;
-				if (index === l) {
-					setflag();
-				}
-			}, posarr.shift() * 25);
-		});
+			current = $imgslen - 1;
+		imgsrc = $imgs[current].getAttribute('data-path');
+		var info = {
+			aName: $imgs[current].getAttribute('data-album'),
+			iName: $imgs[current].getAttribute('data-name'),
+			bTime: $imgs[current].getAttribute('data-time')
+		}
+		loadImg(imgsrc, info, start);
 	});
 	$next.bind('click', function() {
 		if (clickflag) {
 			return;
 		}
 		setflag();
+		$loading.show();
+		loaded = false;
 		++current;
-		if (current > $len - 1)
+		if (current > $imgslen - 1)
 			current = 0;
-		imgsrc = srcs[current];
-		calImgMiddlepos(wrapperWidth, wrapperHeight, imgsrc);
-		var posarr = shuffle2(positionsArray.slice(0));
-		var index = 0;
-		var l = $kids.length;
-		$kids.each(function(i) {
-			var t = $(this);
-			var d = Math.random() > 0.5 ? true : false;
-			if (d) {
-				t.css({
-					'transform': 'rotateY(360deg)'
-				});
-			} else {
-				t.css({
-					'transform': 'rotateX(360deg)'
-				});
-			}
-			setTimeout(function() {
-				setBackground(t, i);
-				if (d) {
-					t.css({
-						'transform': 'rotateY(0)'
-					});
-				} else {
-					t.css({
-						'transform': 'rotateX(0)'
-					});
-				}
-				index++;
-				if (index === l) {
-					setflag();
-				}
-			}, posarr.shift() * 25);
-		});
+		imgsrc = $imgs[current].getAttribute('data-path');
+		var info = {
+			aName: $imgs[current].getAttribute('data-album'),
+			iName: $imgs[current].getAttribute('data-name'),
+			bTime: $imgs[current].getAttribute('data-time')
+		}
+		loadImg(imgsrc, info, start);
 	});
 	$wall.bind('mousedown', function(event) {
 		mouse_down = true;
@@ -182,8 +210,8 @@ $(function() {
 			var y2 = getMousePos(event).y;
 			var mouseX2 = getPosInObj($(this)[0], x2, y2).x;
 			var mouseY2 = getPosInObj($(this)[0], x2, y2).y;
-			dx = mouseX - mouseX2;
-			dy = mouseY - mouseY2;
+			var dx = mouseX - mouseX2;
+			var dy = mouseY - mouseY2;
 			$kids.each(function(index, el) {
 				var back_pos = calMoveBackPos(index, dx, dy);
 				$(el).css('background-position', back_pos.horizontalPos + "px " + back_pos.verticalPos + "px");
@@ -207,8 +235,7 @@ $(function() {
 					'width': $kidWidth + 'px',
 					'height': $kidHeight + 'px',
 					'background-repeat': 'no-repeat',
-					'background-color': 'white',
-					'transition': 'transform .6s',
+					'transition': 'transform .4s',
 					'position': 'absolute',
 					'top': i * $kidHeight + 'px',
 					'left': j * $kidWidth + 'px'
@@ -216,17 +243,6 @@ $(function() {
 				$kid.appendTo($parent);
 			}
 		}
-	}
-
-	function start() {
-		$loading.hide();
-		$kids = $wall.find('div.wall-kid');
-		imgsrc = srcs[current];
-		calImgMiddlepos(wrapperWidth, wrapperHeight, imgsrc);
-		$kids.each(function(index) {
-			var $kid = $(this);
-			setBackground($kid, index);
-		});
 	}
 
 	function setBackground($el, index) {
@@ -237,11 +253,6 @@ $(function() {
 		});
 		var arr = $el.css('background-position').split(/px[\s]?/);
 		recordCurPos(index, arr);
-	}
-
-	function calspace(pl, pc) {
-		space_w = $(window).width() / (pl + 1);
-		space_h = $(window).height() / (pc + 1);
 	}
 
 	function calBackPos(index) {
@@ -323,6 +334,24 @@ $(function() {
 	function setflag() {
 		clickflag = !clickflag;
 	}
+	$('.close').on('click', function() {
+		$('.main').stop().animate({
+			'right': '-100%'
+		});
+		$('body').addClass('full');
+		init();
+		$('.navbar-toggle').show();
+	});
+	$('.navbar-toggle').on('click', function() {
+		var $this = $(this);
+		$('.main').stop().animate({
+			'right': 0
+		}, function() {
+			$this.hide();
+		});
+		$('body').removeClass('full');
+		init();
+	})
 	$(window).bind('resize', function() {
 		init();
 	});

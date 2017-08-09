@@ -4,9 +4,11 @@
 {% include head.html %}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
 <style>
-	html {
-		background-image: url("/images/wood.jpg");
+	html, body {
 		height: 100%;
+		width: 100%;
+	}
+	html {
 		overflow: hidden;
 	}
 	.home {
@@ -33,17 +35,13 @@
 		position: absolute;
 		top: 10px;
 		right: -20px;
+		color: #F73C3C;
 		-moz-animation: blink 1s infinite;	/* Firefox */
 		-webkit-animation: blink 1s infinite;	/* Safari 和 Chrome */
 		-o-animation: blink 1s infinite;	/* Opera */
 	}
 	.home:hover {
 		left: 0;
-	}
-	.album-container {
-		position: absolute;
-		z-index: -9999;
-		opacity: 0;
 	}
 	.loading{
 		position: fixed;
@@ -59,16 +57,21 @@
 		height: 50px;
 		border-radius: 5px;
 		position: absolute;
-		z-index: 1000;
-		bottom: 50%;
 		cursor: pointer;
 		background-color: #EAE8E8;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 50px;
 	}
 	#img_pre {
 		left: -100%;
 	}
 	#img_next {
 		right: -100%;
+	}
+	#img_pre, #img_next {
+		z-index: 1000;
+		bottom: 50%;
 	}
 	.button svg polyline {
 		fill: transparent;
@@ -78,28 +81,148 @@
 	.button:hover svg polyline {
 		stroke: black;
 	}
+	.main {
+		position: fixed;
+		z-index: 10000;
+		right: 0;
+		width: 22.5em;
+		height: 100%;
+		background-color: #fff;
+		text-align: right;
+		overflow: auto;
+	}
+	#header {
+		padding: 30px;
+	}
+	.header-btn {
+		top: 10px;
+		left: 10px;
+		font-weight: bold;
+		border-radius: 100%;
+		background-color: transparent;
+		z-index: 9999;
+	}
+	.header-btn:hover {
+		background-color: rgba(0,0,0,.09);
+		color: white;
+	}
+	h1.author-name {	
+		font-size: 2.25em;
+		font-weight: bold;
+		color: #363636;
+		margin-bottom: 0.5em;
+	}
+	.img-info {
+		color: #A4A0A0;
+		margin-bottom: 1.25em;
+	}
+	.albums, .img, .img-time {
+		padding: 5px;
+	}
+	.album-container {
+		width: 98%;
+		padding: 2px;
+		margin: 3px
+	}
+	.thumbnail {
+		width: 50%;
+		font-size: 0;
+	}
+	.thumbnail img {
+		width: 100%;
+	}
+	.thumbnail.focus {
+		outline: 2px solid #00b4ae;
+	}
+	.photo-wall {
+		width: calc(100% - 22.5em);
+		height: 100%;
+	}
+	body.full .photo-wall {
+		width: 100%;
+	}
+	@media (min-width: 480px) {
+		.album-container.img-pre-list .img-li-item {
+			width: 50%;
+		}
+	}
+	@media (max-width: 1200px) {
+		.main {
+			width: 19em;
+		}
+		.photo-wall {
+			width: calc(100% - 19em);
+		}
+	}
+	@media (max-width: 992px) {
+		.main {
+			background-color: rgba(255,255,255,.96);
+		}
+	}
+	@media (max-width: 980px) {
+		.photo-wall {
+			width: 100%;
+		}
+	}
+	@media (max-width: 480px) {
+		.main {
+			width: 100%;
+			background-color: rgb(255,255,255);
+		}
+	}
+	.navbar-toggle {
+		display: block;
+	}
 </style>
 </head>
 <body>
 	<a class="home" href="/">首页</a>
-	{{content}}
-	<!-- <div class="container" style="height: 100%;position: relative;"> -->
-		<div id="loading"></div>
-		<div class="photo-wall" style="width: 100%;height: 100%;">
-			<div class="button" id="img_pre">
-				<svg width="100%" height="100%" version="1.1"
-				xmlns="http://www.w3.org/2000/svg">
-					<polyline points="30,15 15,25 30,35"></polyline>
-				</svg>
+	<div class="navbar-toggle">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</div>
+	<div class="main">
+	<header id="header">
+		<a href="#" class="button header-btn close">X</a>
+		<h1 class="author-name">{{ site.author.name }}</h1>
+		<div class="img-info">
+			<div class="albums">
+				<span>相册：</span>
+				<span class="album-name">相册</span>
 			</div>
-			<div class="button" id="img_next">
-				<svg width="100%" height="100%" version="1.1"
-				xmlns="http://www.w3.org/2000/svg">
-					<polyline points="20,15 35,25 20,35"></polyline>
-				</svg>
+			<div class="img">
+				<span class="img-name">图片</span>
+			</div>
+			<div class="img-time">
+				<span>创建于</span>
+				<span class="built-time">2017-05-06 08:00:00</span>
 			</div>
 		</div>
-	<!-- </div> -->
+	</header>
+	<div class="thumbnails">
+		{{ content }}
+	</div>
+	</div>
+	<div id="loading"></div>
+	<div class="photo-wall">
+		<div class="button" id="img_pre">
+			<svg width="100%" height="100%" version="1.1"
+			xmlns="http://www.w3.org/2000/svg">
+				<polyline points="30,15 15,25 30,35"></polyline>
+			</svg>
+		</div>
+		<div class="button" id="img_next">
+			<svg width="100%" height="100%" version="1.1"
+			xmlns="http://www.w3.org/2000/svg">
+				<polyline points="20,15 35,25 20,35"></polyline>
+			</svg>
+		</div>
+	</div>
 	<script type="text/javascript" src="/assets/js/photowall.js"></script>
+	<script type="text/javascript" src="/assets/js/wff.js"></script>
+	<script type="text/javascript">
+		Wff({pSelector: '.wwf', itemSelector: '.wwf-li', all: true});
+	</script>
 </body>
 </html>

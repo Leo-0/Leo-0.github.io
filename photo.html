@@ -1,35 +1,16 @@
 ---
 layout: album
 ---
-<!-- <div class="container">
+<div class="album-container img-pre-list wwf">
 {% assign image_files = site.static_files | where: "album", true %}
-{% assign temp = null %}
-{% assign same = false %}
 {% for myimage in image_files %}
 {% assign img = myimage.name %}
 {% assign album_name = myimage.path | remove: '/images/albums' | remove: img | remove: '/' %}
-{% if temp != album_name %}
-	{% capture temp %}{{album_name}}{% endcapture %}
-	{% if same %}
-	{% capture same %}{{false}}{% endcapture %}
-	</ul>
-	</div>
-	{% endif %}
-	<div class="album-container">
-	<p class="album_name">{{album_name}}</p>
-	<ul class="img-pre-list wwf"><li class="img-li-item wwf-li"><img src="{{ myimage.path }}"></li>
-{% else %}
-	<li class="img-li-item wwf-li"><img src="{{ myimage.path }}"></li>
-{% capture same %}{{true}}{% endcapture %}
-{% endif %}
+{% assign times = myimage.modified_time | split: ' ' %}
+{% assign last = times | last %}
+{% assign timestring = myimage.modified_time | remove: last %}
+	<a class="thumbnail img-li-item wwf-li" href="#">
+		<img src="{{ myimage.path }}" alt="{{ myimage.name }}" data-album="{{ album_name }}" data-name="{{ myimage.basename }}" data-time="{{ timestring }}" data-path="{{ myimage.path }}">
+	</a>
 {% endfor %}
-</div>
- -->
- <div class="album-container">
- {% assign image_files = site.static_files | where: "album", true %}
- {% for img in image_files %}
- <div>
- 	<img src="{{ img.path }}" alt="">
- </div>
- {% endfor %}
 </div>
