@@ -162,8 +162,7 @@ a {
 	display: block;
 }
 .brand a img {
-	display: block;
-	height: 100%;
+	max-width: 120px;
 }
 .brand a span {
 	float: right;
@@ -492,7 +491,7 @@ section {
 /*intro end*/
 /*blog-preview start*/
 #blog-preview {
-	background-image: url("/images/1501828216208.jpg");
+	background-image: url("http://desk.fd.zol-img.com.cn/t_s1366x768c5/g5/M00/02/04/ChMkJld029mIVj-LAA9s2zjwAX4AATGeQAGqLMAD2zz045.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -623,7 +622,7 @@ img.pin-icon {
 	display: inline-block;
 }
 #collection {
-	background-image: url("/images/1501828259615.jpg");
+	background-image: url("http://desk.fd.zol-img.com.cn/t_s1366x768c5/g5/M00/02/04/ChMkJ1d029eIaxZHAAaScRW5A-IAATGeAMfBWAABpKJ971.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -632,7 +631,7 @@ img.pin-icon {
 	position: relative;
 	display: block;
 	overflow: hidden;
-	color: white;
+	color: #f08e6b;
 	font-size: 18px;
 	font-weight: bold;
 }
