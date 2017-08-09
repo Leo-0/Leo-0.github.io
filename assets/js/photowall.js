@@ -44,27 +44,6 @@ $(function() {
 		}
 		$loading.show();
 		$imgs = $imgwrapper.find('img');
-		$imgs.each(function(index, el) {
-			$(el).parent('.thumbnail').on('click', function() {
-				if ($(window).width() <= 480) {
-					$('.main').stop().animate({
-						'right': '-100%'
-					});
-					$('body').addClass('full');
-					init();
-					$('.navbar-toggle').show();
-				}
-				current = index;
-				imgsrc = $imgs[current].getAttribute('data-path');
-				var info = {
-					aName: $imgs[current].getAttribute('data-album'),
-					iName: $imgs[current].getAttribute('data-name'),
-					bTime: $imgs[current].getAttribute('data-time')
-				}
-				loaded = false;
-				loadImg(imgsrc, info, start);
-			});
-		});
 		$imgslen = $imgs.length;
 		$kidWidth = Math.round($wall.width() / col);
 		$kidHeight = Math.round($wall.height() / row);
@@ -220,6 +199,28 @@ $(function() {
 	});
 	$wall.mouseover(addNavigation);
 	$wall.mouseout(removeNavigation);
+	$('.album-container').on('click', function(event) {
+		var e = event || window.event;
+		var tar = e.srcElement || e.target;
+		if (tar.className.indexOf('athumb') !== -1) {
+			if ($(window).width() <= 480) {
+				$('.main').stop().animate({
+					'right': '-100%'
+				});
+				$('body').addClass('full');
+				$('.navbar-toggle').show();
+			}
+			current = $('.album-container .thumbnail').index(tar.offsetParent);
+			imgsrc = $imgs[current].getAttribute('data-path');
+			var info = {
+				aName: $imgs[current].getAttribute('data-album'),
+				iName: $imgs[current].getAttribute('data-name'),
+				bTime: $imgs[current].getAttribute('data-time')
+			}
+			loaded = false;
+			loadImg(imgsrc, info, start);
+		}
+	});
 
 	function appendKids($parent, col, row) {
 		$parent.css({

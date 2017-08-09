@@ -10,7 +10,7 @@ layout: album
 {% assign last = times | last %}
 {% assign timestring = myimage.modified_time | remove: last %}
 	<a class="thumbnail img-li-item wwf-li" href="#">
-		<img src="{{ myimage.path }}" alt="{{ myimage.name }}" data-album="{{ album_name }}" data-name="{{ myimage.basename }}" data-time="{{ timestring }}" data-path="{{ myimage.path }}">
+		<img class="athumb" src="{{ myimage.path }}" alt="{{ myimage.name }}" data-album="{{ album_name }}" data-name="{{ myimage.basename }}" data-time="{{ timestring }}" data-path="{{ myimage.path }}">
 	</a>
 {% endfor %}
 </div>
