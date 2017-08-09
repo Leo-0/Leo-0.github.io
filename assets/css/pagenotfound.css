@@ -1,0 +1,143 @@
+@import url("common.css");
+html {
+	background-image: url("/images/bckg.jpg");
+}
+.home {
+	position: absolute;
+	z-index: 9999;
+	width: 80px;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	left: -80px;
+	top: 0;
+	background: #00b4ae;
+	padding: 10px 20px;
+	border-radius: 8px;
+	color: white;
+	font-size: 20px;
+	-webkit-transition: .6s;
+	-o-transition: .6s;
+	transition: .6s;
+}
+.home:after {
+	content: '←';
+	display: block;
+	width: -20px;
+	position: absolute;
+	top: 10px;
+	right: -20px;
+	color: #F73C3C;
+	-moz-animation: blink 1s infinite;	/* Firefox */
+	-webkit-animation: blink 1s infinite;	/* Safari 和 Chrome */
+	-o-animation: blink 1s infinite;	/* Opera */
+}
+.home:hover {
+	left: 0;
+}
+@keyframes blink
+{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@-moz-keyframes blink /* Firefox */
+{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@-webkit-keyframes blink /* Safari 和 Chrome */
+{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@-o-keyframes blink /* Opera */
+{
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+.page-info {
+	text-align: center;
+}
+h1 {
+	border: 2px solid white;
+	display: inline-block;
+	font-family: Arial;
+	font-size: 16em;
+	padding: 0.1em;
+	margin: 0.1em;
+	box-shadow: 2px 2px 10px #B3AFAF;
+	color: white;
+	text-shadow: -1px -1px 10px #AFAFAF, 1px 1px #DFDFDF, 2px 2px #DFDFDF,3px 3px #DFDFDF,4px 4px #DFDFDF,5px 5px #DAD5D5;
+}
+.info+.info {
+	margin-top: 0.5em;
+}
+.info {
+	color: #2b2828;
+	font-family: Arial;
+	font-size: 1.5em;
+	text-shadow: 1px 1px #f5f1f1, -1px -1px #e6dfdf;
+}
+.piano-container {
+	text-align: center;
+	margin-top: 1.25em;
+	color: #2b2828;
+}
+h2 {
+	font-size: 2em;
+	margin: 0.8em 0;
+	color: #2b2828;
+	text-shadow: 1px 1px #f5f1f1, -1px -1px #e6dfdf;
+}
+.piano-container {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #f1f1f1;
+	display: none;
+}
+.sheet-music .number {
+    margin-top: -1px;
+    padding-top: 10px;
+    border-top: 1px dotted #ddd;
+}
+.sheet-music .letter {
+    padding-bottom: 10px;
+}
+.sheet-music dl {
+    overflow: hidden;
+    zoom: 1;
+    margin: 0 auto;
+    width: 84%;
+}
+.sheet-music dt {
+    display: inline;
+    float: left;
+    width: 65px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    color: #989898;
+}
+.sheet-music .number dd {
+    color: #47b902;
+}
+.sheet-music dd {
+    display: inline;
+    position: relative;
+    float: left;
+    margin-left: 12px;
+    width: 10px;
+    height: 26px;
+    line-height: 26px;
+    font-size: 18px;
+    font-family: arial;
+    color: #7a7a7a;
+}
+.sheet-music .high-pat:after {
+    position: absolute;
+    top: -12px;
+    left: 2px;
+    width: 5px;
+    height: 5px;
+    content: '•';
+    font-size: 14px;
+}

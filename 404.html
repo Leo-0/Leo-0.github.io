@@ -1,24 +1,33 @@
----
-layout: default
----
-
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <title>page not found</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/pagenotfound.css">
+</head>
+<body>
+  <div class="container">
+    <a class="home" href="/">首页</a>
+    <div class="page-info">
+      <h1>404</h1>
+      <p class="info"><strong>Page not found :(</strong></p>
+      <p class="info">The requested page could not be found.</p>
+    </div>
+    <div class="piano-container">
+      <h2>来弹奏一曲吧</h2>
+      <h2>《找朋友》</h2>
+      <div class="sheet-music">
+        <dl class="number"><dt>乐谱</dt><dd>5</dd><dd>6</dd><dd>5</dd><dd>6</dd><dd>5</dd><dd>6</dd><dd>5</dd><dd class="empty-pat"></dd><dd>5</dd><dd class="high-pat">1</dd><dd>7</dd><dd>6</dd><dd>5</dd><dd>5</dd><dd>3</dd><dd class="empty-pat"></dd><dd>5</dd><dd>5</dd><dd>3</dd><dd>3</dd><dd>5</dd><dd>5</dd><dd>3</dd><dd class="empty-pat"></dd><dd>2</dd><dd>4</dd><dd>3</dd><dd>2</dd><dd>1</dd><dd>2</dd><dd>1</dd></dl>
+        <dl class="letter"><dt>键盘弹奏</dt><dd>G</dd><dd>H</dd><dd>G</dd><dd>H</dd><dd>G</dd><dd>H</dd><dd>G</dd><dd class="empty-pat"></dd><dd>G</dd><dd>K</dd><dd>J</dd><dd>H</dd><dd>G</dd><dd>G</dd><dd>D</dd><dd class="empty-pat"></dd><dd>G</dd><dd>G</dd><dd>D</dd><dd>D</dd><dd>G</dd><dd>G</dd><dd>D</dd><dd class="empty-pat"></dd><dd>S</dd><dd>F</dd><dd>D</dd><dd>S</dd><dd>A</dd><dd>S</dd><dd>A</dd></dl>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/assets/js/sound.js"></script>
+</body>
+</html>
