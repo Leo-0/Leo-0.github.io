@@ -619,7 +619,6 @@ img.pin-icon {
 }
 .img-li-item img,
 .coll-li-item a img {
-	display: block;
 	max-width: 100%;
 	display: inline-block;
 }
