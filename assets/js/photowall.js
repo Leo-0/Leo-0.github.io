@@ -171,7 +171,22 @@ $(function() {
 		mouseX = getPosInObj($(this)[0], x, y).x;
 		mouseY = getPosInObj($(this)[0], x, y).y;
 	});
+	$wall.bind('touchstart', function(event) {
+		mouse_down = true;
+		var touch = event.originalEvent.touches[0];
+		var x = getMousePos(touch).x;
+		var y = getMousePos(touch).y;
+		mouseX = getPosInObj($(this)[0], x, y).x;
+		mouseY = getPosInObj($(this)[0], x, y).y;
+	});
 	$(window).bind('mouseup', function(event) {
+		mouse_down = false;
+		$kids.each(function(index, el) {
+			var arr = $(el).css('background-position').split(/px[\s]?/);
+			recordCurPos(index, arr);
+		});
+	});
+	$(document).bind('touchend', function(event) {
 		mouse_down = false;
 		$kids.each(function(index, el) {
 			var arr = $(el).css('background-position').split(/px[\s]?/);
@@ -182,6 +197,22 @@ $(function() {
 		if (mouse_down) {
 			var x2 = getMousePos(event).x;
 			var y2 = getMousePos(event).y;
+			var mouseX2 = getPosInObj($(this)[0], x2, y2).x;
+			var mouseY2 = getPosInObj($(this)[0], x2, y2).y;
+			var dx = mouseX - mouseX2;
+			var dy = mouseY - mouseY2;
+			$kids.each(function(index, el) {
+				var back_pos = calMoveBackPos(index, dx, dy);
+				$(el).css('background-position', back_pos.horizontalPos + "px " + back_pos.verticalPos + "px");
+			});
+		}
+	});
+	$wall.bind('touchmove', function(event) {
+		event.preventDefault();
+		if (mouse_down) {
+			var touch = event.originalEvent.touches[0];
+			var x2 = getMousePos(touch).x;
+			var y2 = getMousePos(touch).y;
 			var mouseX2 = getPosInObj($(this)[0], x2, y2).x;
 			var mouseY2 = getPosInObj($(this)[0], x2, y2).y;
 			var dx = mouseX - mouseX2;
