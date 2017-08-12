@@ -3,7 +3,7 @@ layout: post
 title: style test
 date: 2017-07-29
 tags: test
-img:  1501828321643.jpg
+img:  /images/1501828321643.jpg
 ---
 # heading1
 Aha,the test post!😀
