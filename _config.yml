@@ -48,6 +48,10 @@ plugins:
 # Paginator
 paginate: 6
 
+# Baidu Analysis
+baidu-analysis:
+    enable: true
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
