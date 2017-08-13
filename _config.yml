@@ -21,7 +21,7 @@ github_username: Leo-0
 email: leo_yanlin@163.com
 
 # Permalink
-permalink: /:categories/:title
+permalink: /blog/:categories/:title
 
 # Personalized signature 
 personalized: 
