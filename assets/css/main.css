@@ -643,7 +643,7 @@ article {
 }
 article h1 {
 	font-size: 1.8em;
-	padding: 30px 0;
+	padding: 20px 0 10px;
 }
 article h2 {
 	font-size: 1.35em;
@@ -716,12 +716,15 @@ article ol {
 	list-style-type: decimal;
 }
 article ul,article ol {
-	margin: 10px 55px;
-	padding: 5px;
+	margin: 5px 55px;
+	padding: 0 5px;
 }
 article ul li,article ol li {
 	margin: 6px 0;
 	line-height: 1.5;
+}
+article ul li p,article ol li p {
+	padding: 0;
 }
 article code {
   color: #000000;
@@ -807,7 +810,7 @@ article blockquote p {
 }
 .article-info {
 	padding: 15px 40px;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	background-color: rgba(0, 0, 0, 0.09);
 	text-shadow: 0 1px 1px #fff;
 }
