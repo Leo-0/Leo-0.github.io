@@ -8,7 +8,7 @@ tags:  JavaScript
 ## 关于Speech Synthesis API
 Speech Synthesis还没得到普遍的支持（戳[这里](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis#Browser_compatibility)查看浏览器的兼容性），一些具体事项可以在[MDN](https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis)查看。
 
-`SpeechSynthesis`对像有以下方法：
+`SpeechSynthesis`对象有以下方法：
 - cancel(): 从话语队列中移除所有话语。
 - getVoices(): 返回表示当前设备上所有可用语音的`SpeechSynthesisVoice`对象列表。
 - pause(): 将`SpeechSynthesis`对象置于暂停状态。
