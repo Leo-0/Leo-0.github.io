@@ -271,7 +271,7 @@ section {
 /*    jumbotron start    */
 .jumbotron-wrapper {
 	height: 100%;
-	background-image: url("/images/green.jpg");
+	background-image: url("https://i.loli.net/2017/09/03/59ab9569d38dd.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -424,7 +424,7 @@ section {
 /*intro end*/
 /*blog-preview start*/
 #blog-preview {
-	background-image: url("http://desk.fd.zol-img.com.cn/t_s1366x768c5/g5/M00/02/04/ChMkJld029mIVj-LAA9s2zjwAX4AATGeQAGqLMAD2zz045.jpg");
+	background-image: url("https://i.loli.net/2017/09/03/59ab9c41f3028.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -555,7 +555,7 @@ img.pin-icon {
 	display: inline-block;
 }
 #collection {
-	background-image: url("http://desk.fd.zol-img.com.cn/t_s1366x768c5/g5/M00/02/04/ChMkJ1d029eIaxZHAAaScRW5A-IAATGeAMfBWAABpKJ971.jpg");
+	background-image: url("https://i.loli.net/2017/09/03/59ab9c3dd463f.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -639,7 +639,7 @@ article {
 	margin-top: 60px;
 	box-shadow: 2px 2px 10px #6F6C6C;
 	padding-bottom: 60px;
-	background-image: url("/images/grey.jpg");
+	background-image: url("https://i.loli.net/2017/09/03/59abaa3148f66.jpg");
 }
 article h1 {
 	font-size: 1.8em;
@@ -793,11 +793,30 @@ td.gutter {
 }
 article blockquote {
 	margin: 10px 40px;
-	border-left: 5px solid #5B5A5A;
 	background-color: #f9f9f0;
 }
+blockquote {
+	position: relative;
+}
+blockquote:before {
+	content: '\201C';
+	top: 0.5em;
+	left: 0;
+}
+blockquote:after {
+	content: '\201D';
+	bottom: 0;
+	right: 0;
+}
+blockquote:before, blockquote:after {
+	font-family: Arial,Helvetica,"SimSun";
+	font-size: 6em;
+	line-height: 0;
+	position: absolute;
+	color: #C8C7C7;
+}
 article blockquote p {
-	padding: 10px;
+	padding: 1em 1.8em;
 }
 .post-title {
 	color: #F08E6B;
