@@ -30,6 +30,10 @@
 	Calendar({id: '#calendar',animated: true});
 	window.onresize = function() {
 		Calendar({id: '#calendar',animated: true});
+		var ele = document.querySelector('.navbar');
+		if(ele.className.indexOf('show') !== -1) {
+			ele.className = ele.className.replace(/\sshow/g,'');
+		}
 	}
 	controlBgCal();
 	Time({id: '#time', callback: controlBgCal});
