@@ -3,7 +3,7 @@ html {
 	background-image: url("https://i.loli.net/2017/09/03/59abaa31352a0.jpg");
 }
 .home {
-	position: absolute;
+	position: fixed;
 	z-index: 9999;
 	width: 80px;
 	display: inline-block;
@@ -132,12 +132,40 @@ h2 {
     font-family: arial;
     color: #7a7a7a;
 }
-.sheet-music .high-pat:after {
+.high-pat:after {
     position: absolute;
-    top: -12px;
-    left: 2px;
     width: 5px;
     height: 5px;
     content: '•';
-    font-size: 14px;
+    font-size: 0.875em;
+}
+.sheet-music .high-pat:after {
+	top: -12px;
+	left: 2px;
+}
+.piano-keys {
+	text-align: center;
+}
+.piano-keys .key {
+	display: inline-block;
+	text-align: center;
+	width: 11.1111111%;
+	width: calc(100% / 9);
+	margin: 0.5em 1.5em;
+	padding: 0.5em;
+}
+@media screen and (max-width: 768px) {
+	.piano-keys .key {
+		margin: 0.5em 0.8em;
+	}
+}
+.piano-keys .key dd {
+	position: relative;
+}
+.piano-keys .key dl+dl {
+	margin-top: 5px;
+}
+.piano-keys .key .high-pat:after {
+	top: -12px;
+	left: calc(50% - 3px);
 }

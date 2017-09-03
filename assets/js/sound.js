@@ -42,6 +42,13 @@ window.AudioContext = window.AudioContext || window.webkitAudioContext;
             sound(frequency);
         }
     };
+    var keys = document.querySelectorAll('.key');
+    keys.forEach(function(elem, index) {
+        elem.onclick = function(e) {
+            frequency = arrFrequency[index];
+            sound(frequency);
+        };
+    });
 
     function sound(frequency) {
         // 创建一个OscillatorNode,表示一个周期性波形
