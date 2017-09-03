@@ -21,7 +21,7 @@ tags:   游戏 minecraft
 	| 1	| 1 | 1 |
 	
 	从上表可以看出与门只有同时输入1的时候才输出1，否则输出0。大概的红石电路图如下：
-	![与门](/images/Minecraft/andgate.jpg)
+	![andgate](https://i.imgur.com/WGi7CUw.jpg)
 	
 2. 或门（OR gate）
 
@@ -37,7 +37,7 @@ tags:   游戏 minecraft
 	| 1 | 1 | 1 |
 
 	从上表可以看出或门只要有一个输入为1则输出为1否则输出为0。大概的红石电路图如下：
-	![或门](/images/Minecraft/orgate.jpg)
+	![orgate](https://i.imgur.com/JiL1SaN.jpg)
 
 3. 非门（NOT gate）
 
@@ -52,7 +52,7 @@ tags:   游戏 minecraft
 
 	从上表可以看出非门的输出与输入相反，输入为0则输出为1，输入为1则输出为0。
 	大概的红石电路图如下：
-	![非门](/images/Minecraft/notgate.jpg)
+	![notgate](https://i.imgur.com/ZSAjD4K.jpg)
 
 ### 稍复杂的逻辑门
 1. 异或门（XOR gate）
@@ -70,7 +70,7 @@ tags:   游戏 minecraft
 
 	从上表可以看出异或门只有输入不同时输出才为1，否则输出为0.
 	大概的红石电路图如下：
-	![异或门](/images/Minecraft/xorgate.jpg)
+	![xorgate](https://i.imgur.com/SQN2gGh.jpg)
 
 2. 同或门（XNOR gate）
 
@@ -87,7 +87,7 @@ tags:   游戏 minecraft
 
 	从上表可以看出同或门输入相同时输出为1，否则为0。同或为异或取非。
 	大概的红石电路图如下：
-	![同或门](/images/Minecraft/xnorgate.jpg)
+	![xnorgate](https://i.imgur.com/GlYDwna.jpg)
 
 3. 还有与非门（NAND gate），或非门（NOR gate）等
 
