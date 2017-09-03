@@ -44,6 +44,21 @@ table {
 * {
 	box-sizing: border-box;
 }
+::selection { background:#FFB270; color:white;}
+::-moz-selection { background:#FFB270; color:white;}
+::-webkit-selection { background:#FFB270; color:white;}
+.circle {
+	border-radius: 100%;
+	overflow: hidden;
+}
+.clearfix:after {
+	content: "";
+	width: 0;
+	height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
 /*     container start     */
 .container {
 	padding-left: 15px;
