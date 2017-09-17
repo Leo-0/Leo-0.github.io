@@ -31,12 +31,12 @@ personalized:
 # Navigation
 nav: 
     - {title: 首页, url: '/'}
-    - {title: 关于, url: '/about'}
     - {title: 文章, url: '/archive'}
     - {title: 收藏夹, url: '/collection'}
     - {title: 相册, url: '/photo'}
     - {title: 标签, url: '/tag'}
     - {title: 留言, url: '/message'}
+#    - {title: 关于, url: '/about'}
 
 # Build settings
 markdown: kramdown
@@ -49,8 +49,8 @@ plugins:
 paginate: 6
 
 # Baidu Analysis
-baidu-analysis:
-    enable: true
+# baidu-analysis:
+#    enable: true
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
