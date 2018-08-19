@@ -1,7 +1,7 @@
 title: Leo-0 # site title
 author: 
     name: Leo-0 # your name
-    avatar: '/images/whale.jpg' # your avatar url
+    avatar: '/images/notme.jpg' # your avatar url
 brand:  
     url: '/images/Leo-0.png' # brand url
 description: 
@@ -18,7 +18,7 @@ defaults:
 
 # Social settings
 github_username: Leo-0
-email: leo_yanlin@163.com
+email: no@email.com
 
 # Permalink
 permalink: /blog/:categories/:title
@@ -26,7 +26,9 @@ permalink: /blog/:categories/:title
 # Personalized signature 
 personalized: 
     - signature: 拥抱生活，热爱生活
-    - signature: enjoy coding
+    - signature: Enjoy coding
+
+confession: 能陪某个人走一段路，也是值得的
 
 # Navigation
 nav: 
@@ -51,7 +53,7 @@ paginate: 6
 # Baidu Analysis
 # baidu-analysis:
 #    enable: true
-
+baidu-analysis: 3df3daf643a33650a558775016d1291a
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
