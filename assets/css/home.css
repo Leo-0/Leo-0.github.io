@@ -6,12 +6,13 @@ body {
 	height: 100%;
 	background-color: #002;
 	background-image: radial-gradient(circle at center, #045, #002);
+    margin: 0;
 }
 .avatar {
     display: block;
-    margin: 50px auto;
-    width: 200px;
-    height: 200px;
+    margin: 10% auto 7px auto;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -26,8 +27,9 @@ body {
 }
 .top-msg {
 	position: fixed;
-	top: 0;
+	top: 7px;
 	width: 100%;
+    padding: 5px 0;
 	color: #9a9696;
 	text-align: center;
 	opacity: .3;
@@ -100,14 +102,15 @@ input {
 	letter-spacing: 2px;
 }
 .bottom {
-    width: 100%;
     text-align: center;
     position: fixed;
     bottom: 70px;
 }
 .nav {
+    width: 100%;
     padding: 20px 10px;
     text-align: center;
+    box-sizing: border-box;
 }
 .menu-item {
     cursor: pointer;
@@ -121,9 +124,9 @@ input {
     text-align: center;
     line-height: 60px;
     padding: 5px;
-    -webkit-transition: width .7s ease ,height .7s ease ,line-height .7s ease ;
-    -o-transition: width .7s ease ,height .7s ease ,line-height .7s ease ;
-    transition: width .7s ease ,height .7s ease ,line-height .7s ease ;
+    -webkit-transition: width .7s ease ,height .7s ease ,line-height .7s ease;
+    -o-transition: width .7s ease ,height .7s ease ,line-height .7s ease;
+    transition: width .7s ease ,height .7s ease ,line-height .7s ease;
     /*linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);*/
 }
 .menu-item:hover {

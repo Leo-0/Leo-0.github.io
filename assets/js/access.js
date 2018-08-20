@@ -9,7 +9,9 @@ $(function() {
 		// $(this).slideUp();
 		d.fadeOut('slow',function() {
 			d.remove();
-			$('#trickinput').focus();
+			$('#trick-outter').fadeIn(function() {
+				$('#trickinput').focus();
+			});
 		});
 	});
 	inp.keyup(function(event) {
