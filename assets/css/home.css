@@ -43,10 +43,33 @@ body {
 }
 .pagewrap
 {
-    z-index: 9999;
+    z-index: 999;
     /*background-color: #312d2d;*/
     background-color: #312d2d;
     background-image: radial-gradient(circle at center, #045, #002);
+}
+#rangewrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.range-p {
+    color: #fff;
+    width: 333px;
+}
+.range-p span {
+    margin: 0 0 0 5px;
+}
+.range-p span+span {
+    margin: 0;
+}
+.range-p input,.range-p strong {
+    float: right;
+}
+.nofloat {
+    float: none !important;
+    margin-left: 5px;
 }
 .svgwrap,.trickwrap
 {
@@ -76,8 +99,9 @@ body {
 }
 .svg-path
 {
-    animation: draw 3s linear infinite;
     stroke-dasharray: 10;
+    stroke-dashoffset: 200;
+    animation: draw 3s linear infinite;
 }
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color: #BABABA;
@@ -96,7 +120,7 @@ body {
 ::-ms-input-placeholder { /* Microsoft Edge */
    color: #BABABA;
 }
-input {
+input#trickinput {
 	/*caret-color: transparent;*/
 	caret-color: #fff;
 	letter-spacing: 2px;
@@ -104,7 +128,7 @@ input {
 .bottom {
     text-align: center;
     position: fixed;
-    bottom: 70px;
+    bottom: 10%;
 }
 .nav {
     width: 100%;
@@ -138,27 +162,27 @@ input {
 {
     to
     {
-        stroke-dashoffset: 200;
+        stroke-dashoffset: 0;
     }
 }
 @-o-keyframes draw
 {
     to
     {
-        stroke-dashoffset: 200;
+        stroke-dashoffset: 0;
     }
 }
 @-moz-keyframes draw
 {
     to
     {
-        stroke-dashoffset: 200;
+        stroke-dashoffset: 0;
     }
 }
 @keyframes draw
 {
     to
     {
-        stroke-dashoffset: 200;
+        stroke-dashoffset: 0;
     }
 }

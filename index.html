@@ -2,6 +2,20 @@
 layout: home
 ---
 <div class="pagewrap" id="home-div">
+	<div id="rangewrap" style="display: none;">
+		<p class="range-p"><span>stroke-dasharray</span><span id="dasharray">(10)</span><input type="range" name="dasharray" min="0" max="100" value="10"></p>
+		<p class="range-p"><span>stroke-dashoffset</span><span id="dashoffset">(200)</span><input type="range" name="dashoffset" min="0" max="5000" value="200"></p>
+		<p class="range-p"><span>duration</span><span id="duration">(3s)</span><input type="range" name="duration" min="0" max="10000" value="3000"></p>
+		<p class="range-p"><span>fill-opacity</span><span id="opacity">(0)</span><input type="range" name="opacity" min="0" max="10" value="0"></p>
+		<p class="range-p"><span>timing-function</span>
+			<strong>linear</strong><input type="radio" name="function" value="linear" checked="checked">
+			<strong>ease</strong><input type="radio" name="function" value="ease">
+		</p>
+		<p class="range-p">
+			<span>stroke-color</span><input type="color" name="stroke" class="nofloat" value="#ffffff"><span id="strokecolor"></span>
+			<span>fill-color</span><input type="color" name="fill" class="nofloat" value="#ffffff"><span id="fillcolor"></span>
+		</p>
+	</div>
 	<div class="svgwrap centered-wrapper" title="{{ site.author.name }}">
 		<svg class="centered" id="svg" width="320" height="124" viewBox="0,0,750,280">
 			<g transform="matrix(0.91392037,0,0,1.0941872,0,-756)" id="text7320">
@@ -49,4 +63,4 @@ layout: home
 		<div class="temporary" id="temporary6">哈哈哈哈哈</div>
 	</div>
 </div>
-<script type="text/javascript" src="/assets/js/access.js"></script>
+<script type="text/javascript" src="/assets/js/access.js" async="async"></script>
