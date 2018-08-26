@@ -2,7 +2,7 @@ $(function() {
 	var d = $('#home-div');
 	var svg = $('#svg');
 	var inp = $('#trickinput');
-	var nav = $('#nav');
+	var nav = $('#dock');
 	var items = $('.menu-item');
 	var name = '';
 	var sda = 10;

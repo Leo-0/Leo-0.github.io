@@ -125,38 +125,60 @@ input#trickinput {
 	caret-color: #fff;
 	letter-spacing: 2px;
 }
-.bottom {
-    text-align: center;
+#dock {
     position: fixed;
-    bottom: 10%;
-}
-.nav {
+    bottom: 0;
     width: 100%;
-    padding: 20px 10px;
+    padding: 0 20px;
     text-align: center;
     box-sizing: border-box;
 }
-.menu-item {
+#dock ul {
+    width: 70%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: 10px 10px 0 0;
+}
+#dock ul li {
+    list-style: none;
+    margin: 5px;
+}
+/*linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);*/
+.dock-item {
     cursor: pointer;
-    color: #fff;
-    display: inline-block;
-    margin: 7px;
+    position: relative;
     width: 60px;
     height: 60px;
-    background-color: #1c819e;
-    border-radius: 50%;
-    text-align: center;
     line-height: 60px;
-    padding: 5px;
-    -webkit-transition: width .7s ease ,height .7s ease ,line-height .7s ease;
-    -o-transition: width .7s ease ,height .7s ease ,line-height .7s ease;
-    transition: width .7s ease ,height .7s ease ,line-height .7s ease;
-    /*linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);*/
+    font-size: 0.875em;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #1c819e;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+    -webkit-transform-origin: 50% bottom;
+    -moz-transform-origin: 50% bottom;
+    -ms-transform-origin: 50% bottom;
+    -o-transform-origin: 50% bottom;
+    transform-origin: 50% bottom;
 }
-.menu-item:hover {
-    width: 90px;
-    height: 90px;
-    line-height: 90px;
+.dock-item:hover {
+    -webkit-transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    -o-transform: scale(1.8);
+    transform: scale(1.8);
+    margin: 5px 3em !important;
+}
+.dock-item:hover+.dock-item {
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+    margin: 5px 1.5em !important;
 }
 @-webkit-keyframes draw
 {

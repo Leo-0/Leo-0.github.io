@@ -50,10 +50,12 @@ layout: home
 	</a>
 	<p class="msg"><span class="msg-first">AI says:"</span><span class="msg-content">Hello</span><span class="msg-last">"</span></p>
 </div>
-<div class="nav bottom" id="nav" style="display: none;">
-	{% for n in site.nav %}
-		<div class="menu-item">{{ n.title }}</div>
-	{% endfor %}
+<div class="nav" id="dock" style="display: none;">
+	<ul>
+		{% for n in site.nav %}
+			<li class="menu-item dock-item">{{ n.title }}</li>
+		{% endfor %}
+	</ul>
 	<div class="temporarywrap" style="display: none;">
 		<div class="temporary" id="temporary1">不要点我</div>
 		<div class="temporary" id="temporary2">点了也不给你跳转，不信你试其他的</div>
