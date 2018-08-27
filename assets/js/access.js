@@ -1,6 +1,7 @@
 $(function() {
-	var d = $('#home-div');
+	var hd = $('#home-div');
 	var svg = $('#svg');
+	var to = $('#trick-outter');
 	var inp = $('#trickinput');
 	var nav = $('#dock');
 	var items = $('.menu-item');
@@ -12,37 +13,67 @@ $(function() {
 	var sc = '#fff';
 	var fc = '#fff';
 	var op = 0;
+	var curHref = '';
+	$(window).load(function() {
+		var hashTagContent = window.location.hash;
+		curHref = window.location.pathname;
+		if(hashTagContent === '#input') {
+			showTrickInput(true);
+		} else if(hashTagContent === '#welcome') {
+			showAvatarAndNav(true);
+		}
+	});
 	svg.mouseover(function(event) {
 		$('#rangewrap').fadeIn();
 	});
 	svg.click(function() {
-		d.fadeOut(function() {
-			d.remove();
-			$('#trick-outter').fadeIn(function() {
-				$('#trickinput').focus();
-			});
-		});
+		showTrickInput(false);
 	});
 	inp.keyup(function(event) {
 		var e = event || window.event;
 		if(e.keyCode === 13 && $(this).val().trim() !== '') {
 			name = $(this).val().trim();
-			var to = $('#trick-outter');
-			to.slideUp(function() {
-				showAvatarAndNav();
-				to.remove();
-			});
+			showAvatarAndNav(false);
 		}
 	});
-	function showAvatarAndNav() {
-		$('.topwrap').fadeIn();
-		$('.msg-content').html('Hello ' + name);
-		nav.fadeIn();
+	function showTrickInput(isAppended) {
+		if(!isAppended) {
+			window.location.href = curHref + '#input'
+		}
+		hd.fadeOut(function() {
+			hd.remove();
+			to.fadeIn(function() {
+				inp.focus();
+			});
+		});
+	}
+	function showAvatarAndNav(isAppended) {
+		if(!isAppended) {
+			window.location.href = curHref+'#welcome';
+		}
+		hd.fadeOut(function() {
+			hd.remove();
+			to.slideUp(function() {
+				to.remove();
+				$('.topwrap').fadeIn(function() {
+					nav.fadeIn();
+				});
+				if(name === '') {
+					$('.msg-content').html('Hello somebody');
+				} else {
+					$('.msg-content').html('Hello ' + name);
+				}
+			});			
+		});
 	}
 	items.click(function(event) {
 		var e = event || window.event;
 		var $this = $(this);
-		var msg = ['不要点我','点了也不给你跳转，不信你试其他的','为什么不跳转呢？','因为','我正在重做→_→','哈哈哈哈哈'];
+		var aHref = $this.children('a').attr('href');
+		if(aHref !== undefined && aHref !== '') {
+			window.location.href = aHref;
+		}
+		var msg = ['不要点我','点了也不给你跳转，不信你试其他的','为什么不跳转呢？','','因为','我正在重做→_→','哈哈哈哈哈'];
 		$('.msg-content').html(msg[$this.index()]);
 	});
 	$('input[name="dasharray"]').on('input propertychange', function(event) {
