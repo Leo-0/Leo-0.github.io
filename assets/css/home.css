@@ -1,12 +1,15 @@
-html {
+* {
+    box-sizing: border-box;
+}
+html,body {
 	height: 100%;
-	overflow: hidden;
 }
 body {
-	height: 100%;
 	background-color: #002;
 	background-image: radial-gradient(circle at center, #045, #002);
     margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 .avatar {
     display: block;
@@ -43,7 +46,7 @@ body {
 }
 .pagewrap
 {
-    z-index: 999;
+    z-index: 5;
     /*background-color: #312d2d;*/
     background-color: #312d2d;
     background-image: radial-gradient(circle at center, #045, #002);
@@ -52,11 +55,11 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 7;
 }
 .range-p {
     color: #fff;
-    width: 333px;
+    width: 350px;
 }
 .range-p span {
     margin: 0 0 0 5px;
@@ -131,7 +134,6 @@ input#trickinput {
     width: 100%;
     padding: 0 20px;
     text-align: center;
-    box-sizing: border-box;
 }
 #dock ul {
     width: 70%;
@@ -139,7 +141,6 @@ input#trickinput {
     margin: 0 auto;
     padding: 1em;
     border-radius: 10px 10px 0 0;
-    box-sizing: border-box;
 }
 #dock ul li {
     list-style: none;

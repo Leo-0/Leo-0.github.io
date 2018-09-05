@@ -6,17 +6,14 @@
 <body>
 	<header class="header">
 		<nav class="navbar clearfix">
-			{% if site.brand.url %}
+			<!-- {% if site.brand.url %}
 				<div class="brand">
 					<a href="/">
 						<img src="{{ site.brand.url }}" alt="{{ site.title }}" />
 					</a>
 				</div>
-			{% endif %}
+			{% endif %} -->
 			<ul class="menu" onclick="go()">
-				<!-- <li class="menu-item">
-					<input class="search" id="search-input" type="text" placeholder="搜索" />
-				</li> -->
 				{% for item in site.nav %}
 					<li class="menu-item flip-wrapper">
 						<a href="{{ item.url }}" class="flip" title="{{ item.title }}"> {{ item.title }} </a>
@@ -37,7 +34,6 @@
 	</header>
 	<div class="to-top" onclick="backToTop()"></div>
 	{{ content }}
-	{% include footer.html %}
 	{% include baidu-analysis.html %}
 	{% include script.html %}
 </body>

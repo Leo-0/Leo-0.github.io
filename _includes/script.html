@@ -49,7 +49,7 @@
 	}
 	function backToTop() {
 		var topTimer = setInterval(function() {
-			if(document.all) {
+			if(document.all !== undefined) {
 				document.documentElement.scrollTop -= 100;
 			} else {
 				document.body.scrollTop -= 100;
