@@ -1,40 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-{% include head.html %}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="/assets/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/home.css">
 </head>
+
 <body>
-	<header class="header">
-		<nav class="navbar clearfix">
-			<!-- {% if site.brand.url %}
-				<div class="brand">
-					<a href="/">
-						<img src="{{ site.brand.url }}" alt="{{ site.title }}" />
-					</a>
-				</div>
-			{% endif %} -->
-			<ul class="menu" onclick="go()">
-				{% for item in site.nav %}
-					<li class="menu-item flip-wrapper">
-						<a href="{{ item.url }}" class="flip" title="{{ item.title }}"> {{ item.title }} </a>
-					</li>
-				{% endfor %}
-			</ul>
-			<div class="avatar circle">
-				<a href="/">
-					<img src="{{ site.author.avatar }}" title="{{ site.author.name }}" alt="{{ site.author.name }}">
-				</a>
-			</div>
-			<div class="navbar-toggle" onclick="showNavbar()">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</div>
-		</nav>
-	</header>
-	<div class="to-top" onclick="backToTop()"></div>
 	{{ content }}
-	{% include baidu-analysis.html %}
-	{% include script.html %}
 </body>
+
 </html>

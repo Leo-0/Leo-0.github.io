@@ -61,7 +61,8 @@ plugins:
   - jekyll-paginate
 
 # Paginator
-paginate: 6
+paginate: 2
+paginate_path: 'blog/page:num'
 
 # Baidu Analysis
 # baidu-analysis:
