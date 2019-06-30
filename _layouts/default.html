@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
@@ -10,6 +11,75 @@
 
 <body>
 	{{ content }}
+	<script>
+		var cns = document.getElementById('avatarGraph');
+		var ctx;
+		if (cns.getContext) {
+			ctx = cns.getContext('2d');
+		}
+		var w, h, r, xl, yl, xr, yr;
+		function init() {
+			cns.width = cns.parentElement.offsetWidth;
+			cns.height = cns.parentElement.offsetHeight;
+			w = cns.parentElement.offsetWidth;
+			h = cns.parentElement.offsetHeight;
+			r = w > h ? Math.floor(h * 0.9) : Math.floor(w * 0.9);
+			xl = (5 * w - 2 * r) / 10;
+			yl = (3 * h - r) / 6;
+			xr = (5 * w + 2 * r) / 10;
+			yr = (3 * h - r) / 6;
+		}
+		function draw() {
+			draw2(xl, yl, xr, yr)
+		}
+		function draw2(x1, y1, x2, y2) {
+			drawFace();
+			drawLeftEye(x1, y1);
+			drawRighttEye(x2, y2);
+		}
+		function drawFace() {
+			ctx.beginPath();
+			ctx.strokeStyle = 'black';
+			ctx.arc(w / 2, h / 2, r / 2, 0, Math.PI * 2, false);
+			ctx.stroke();
+			ctx.fillStyle = 'white';
+			ctx.fill();
+		}
+		function drawLeftEye(x, y) {
+			ctx.beginPath();
+			ctx.arc((5 * w - 2 * r) / 10, (3 * h - r) / 6, r / 8, 0, Math.PI * 2, false);
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.arc(x, y, r / 16, 0, Math.PI * 2, false);
+			ctx.stroke();
+			ctx.fillStyle = 'black';
+			ctx.fill();
+		}
+		function drawRighttEye(x, y) {
+			ctx.beginPath();
+			ctx.arc((5 * w + 2 * r) / 10, (3 * h - r) / 6, r / 8, 0, Math.PI * 2, false);
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.arc(x, y, r / 16, 0, Math.PI * 2, false);
+			ctx.stroke();
+			ctx.fillStyle = 'black';
+			ctx.fill();
+		}
+		window.onload = function () {
+			init();
+			draw();
+		}
+		window.onmousemove = function (e) {
+			var e = e || window.event;
+			// console.log(e.pageX + ',' + e.pageY);
+			var a = Math.tan(e.pageX - xl, e.pageY - yl);
+			console.log(a);
+		}
+		window.onresize = function () {
+			init();
+			draw();
+		}
+	</script>
 </body>
 
 </html>
