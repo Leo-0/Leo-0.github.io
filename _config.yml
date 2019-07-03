@@ -26,15 +26,6 @@ permalink: /blog/:categories/:title
 # Personalized signature 
 personalized: 
     - signature: 拥抱生活，热爱生活
-    - signature: Enjoy coding
-
-confession: 
-    - para: 能陪某个人走一段路，也是值得的
-
-myself:
-    - introduction: 时而正经时而疯癫
-    - introduction: 时而开朗时而沉默
-    - introduction: 时而欣喜时而失落
 
 saying: 
     - When other men blindly follow the truth

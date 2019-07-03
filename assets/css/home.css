@@ -14,14 +14,57 @@
     height: 100vh;
     background-color: rgb(39, 56, 56);
     color: white;
+    padding: 50px;
+}
+.side-bar .info {
+    text-align: center;
+    font-size: 1em;
+    font-family: Athelas,STHeiti,Microsoft Yahei,serif;
+}
+.side-bar .info .name {
+    font-size: 1.75em;
+}
+.side-bar .info .name,
+.side-bar .info .signatures {
+    font-weight: 600;
 }
 .post-lists {
     padding: 50px 30px;
+    font-family: Athelas,STHeiti,Microsoft Yahei,serif;
 }
 .post-lists .post-list-row {
     margin-bottom: 20px;
     border-bottom: 2px solid #524f4f;
 }
+.post-lists .post-list-row .post-title {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+}
+.post-lists .post-list-row .post-brief-info,
+.post-lists .post-list-row .tags {
+    font-size: 0.85em;
+    margin: 0.25em 0;
+}
+.post-lists .post-list-row .post-brief-info {
+    color: gray;
+}
+.post-lists .post-list-row .post-brief-info span {
+    margin-right: 6px;
+}
+.post-lists .post-list-row .tags .tag {
+    color: white;
+    background-color: #6fa3ef;
+    padding: 1px 15px;
+    border-radius: 15px;
+}
+.post-lists .post-list-row .post-brief-info .date,
+.post-lists .post-list-row .tags .tag {
+    font-weight: bolder;
+    font-size: 1.05em;
+    display: inline-block;
+    margin-right: 5px;
+}
+.post-lists .post-list-row
 .pagination {
     padding: 20px 30px;
 }
@@ -29,7 +72,7 @@
 .pagination .next {
     display: block;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 1.25em;
     font-family: Athelas,STHeiti,Microsoft Yahei,serif;
 }
 .pagination .prev {
@@ -42,30 +85,3 @@
     width: 100%;
     height: 200px;
 }
-/*.avatar,.avatar .eyes,.avatar .eyes .inner-eye {
-    border-radius: 100%;
-    border-color: black;
-    border-width: 1px;
-    border-style: solid;
-}
-.avatar .eyes {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    background-color: white;
-}
-.avatar .eyes.left-eye {
-    top: 30px;
-    left: 20%;
-}
-.avatar .eyes.right-eye {
-    right: -40%;
-}
-.avatar .eyes .inner-eye {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    top: 25%;
-    left: 25%;
-    background-color: black;
-} */
