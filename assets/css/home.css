@@ -29,16 +29,20 @@
     font-weight: 600;
 }
 .post-lists {
-    padding: 50px 30px;
+    padding: 30px 30px;
+}
+.pagination {
+    padding: 0 30px;
+}
+.post-lists,
+.pagination {
     font-family: Athelas,STHeiti,Microsoft Yahei,serif;
 }
 .post-lists .post-list-row {
-    margin-bottom: 20px;
-    border-bottom: 2px solid #524f4f;
+    padding: 1.5em 0 3em 0;
 }
 .post-lists .post-list-row .post-title {
-    font-size: 1.5em;
-    margin: 0.5em 0;
+    font-size: 1.25em;
 }
 .post-lists .post-list-row .post-brief-info,
 .post-lists .post-list-row .tags {
@@ -64,16 +68,11 @@
     display: inline-block;
     margin-right: 5px;
 }
-.post-lists .post-list-row
-.pagination {
-    padding: 20px 30px;
-}
 .pagination .prev,
 .pagination .next {
     display: block;
     font-weight: 600;
     font-size: 1.25em;
-    font-family: Athelas,STHeiti,Microsoft Yahei,serif;
 }
 .pagination .prev {
     float: left;
