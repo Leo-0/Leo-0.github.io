@@ -29,13 +29,14 @@ function drawFace() {
     // ctx.strokeStyle = 'black';
     ctx.arc(w / 2, h / 2, r / 2, 0, Math.PI * 2, false);
     // ctx.stroke();
-    ctx.fillStyle = '#f1bf72';
+    // ctx.fillStyle = '#f1bf72';
+    ctx.fillStyle = '#fffe9a';
     ctx.fill();
 }
 function drawLeftEye(x, y) {
     ctx.beginPath();
     ctx.arc((5 * w - 2 * r) / 10, (3 * h - r) / 6, r / 8, 0, Math.PI * 2, false); // 左眼外部
-    ctx.stroke();
+    // ctx.stroke();
     ctx.fillStyle = 'white';
     ctx.fill();
     ctx.beginPath();
@@ -46,7 +47,7 @@ function drawLeftEye(x, y) {
 function drawRighttEye(x, y) {
     ctx.beginPath();
     ctx.arc((5 * w + 2 * r) / 10, (3 * h - r) / 6, r / 8, 0, Math.PI * 2, false); // 右眼外部
-    ctx.stroke();
+    // ctx.stroke();
     ctx.fillStyle = 'white';
     ctx.fill();
     ctx.beginPath();

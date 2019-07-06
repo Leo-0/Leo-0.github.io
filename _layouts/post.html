@@ -1,4 +1,32 @@
 ---
 layout: default
 ---
-{{ content }}
+<div class="post-container">
+    <div class="post-top">
+        <h1 class="post-title">{{ page.title }}</h1>
+        <p class="post-brief-info">
+            <span class="date">{{ page.date | date: "%Y-%m-%d" }}</span>
+            <span class="words-number">1234 words</span>
+            <span class="read-time">3 mins read</span>
+        </p>
+        <p class="tags">
+            {% for tag in page.tags %}
+            <a href="#" class="tag">{{ tag }}</a>
+            {% endfor %}
+        </p>
+    </div>
+    <div class="post-content">
+        {{ page.content | markdownify }}
+    </div>
+    <div class="post-bottom pagination">
+        {% if page.previous %}
+        {% assign pre = page.previous %}
+        <a href="{{ pre.url }}" class="prev"><i class="iconfont icon-zuo"></i><span>{{ pre.title }}</span></a>
+        {% endif %}
+        {% if page.next %}
+        {% assign next = page.next %}
+        <a href="{{ next.url }}" class="next"><span>{{ next.title }}</span><i class="iconfont icon-gengduo"></i></a>
+        {% endif %}
+    </div>
+</div>
+{% include footer.html %}

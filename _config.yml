@@ -1,13 +1,12 @@
-title: Leo-0 # site title
-author: 
-    name: Leo-0 # your name
-    avatar: '/images/assassin2.gif' # your avatar url
+title: 呀,Leo-0的小站~ # site title
+author: Leo-0 # your name
 brand:  
     url: '/images/Leo-0.png' # brand url
 description: 
     学无止境，好好学习，天天向上。此为github pages + jekyll 搭建的博客
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+jekyllrb: "https://jekyllrb.com/"
 
 defaults:
   - 
@@ -36,13 +35,10 @@ saying:
     - Everything is permitted
 # Navigation
 nav: 
-    - {title: 首页, url: '/'}
-    - {title: 文章, url: '/archive'}
-    - {title: 收藏夹, url: '/collection'}
-    - {title: 相册, url: '/photo'}
-    - {title: 标签, url: '/tag'}
-    - {title: 留言, url: '/message'}
-    - {title: 关于我, url: '/about'}
+    - {title: home, url: '/'}
+    - {title: archive, url: '/archive'}
+    - {title: tags, url: '/tags'}
+    - {title: about, url: '/about'}
 
 # Build settings
 markdown: kramdown

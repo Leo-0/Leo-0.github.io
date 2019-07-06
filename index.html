@@ -1,51 +1,36 @@
 ---
 layout: default
 ---
-<div class="container">
-	<div class="col w4">
-		<div class="side-bar">
-			<div class="avatar">
-				<canvas id="avatarGraph">您的浏览器不支持canvas,请更换或更新浏览器后重试</canvas>
-			</div>
-			<div class="info">
-				<p class="name">{{ site.author.name }}</p>
-				<div class="signatures">
-					{% for sign in site.personalized %}
-					<p>{{ sign.signature }}</p>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col w6">
-		<!-- 遍历每一页的文章 -->
-		<div class="post-lists">
-			{% for post in paginator.posts %}
-			<div class="post-list-row">
-				<h1 class="post-title">
-					<a href="{{ post.url }}">{{ post.title }}</a>
-				</h1>
-				<p class="post-brief-info">
-					<span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
-					<span class="words-number">1234 words</span>
-					<span class="read-time">3 mins read</span>
-				</p>
-				<p class="tags">
-					{% for tag in post.tags %}
-					<a href="#" class="tag">{{ tag }}</a>
-					{% endfor %}
-				</p>
-			</div>
-			{% endfor %}
-		</div>
-		<!-- 分页链接 -->
-		<div class="pagination">
-			{% if paginator.previous_page %}
-			<a href="{{ paginator.previous_page_path }}" class="prev">Prev</a>
-			{% endif %}
-			{% if paginator.next_page %}
-			<a href="{{ paginator.next_page_path }}" class="next">Next</a>
-			{% endif %}
-		</div>
-	</div>
+{% for post in paginator.posts %}
+<div class="post-list-row">
+	<h1 class="post-title">
+		<a href="{{ post.url }}">{{ post.title }}</a>
+	</h1>
+	<p class="post-brief-info">
+		<span class="date">{{ post.date | date: "%Y-%m-%d" }}</span>
+		<span class="words-number">1234 words</span>
+		<span class="read-time">3 mins read</span>
+	</p>
+	<p class="tags">
+		{% for tag in post.tags %}
+		<a href="#" class="tag">{{ tag }}</a>
+		{% endfor %}
+	</p>
 </div>
+{% endfor %}
+<!-- 分页链接 -->
+<div class="pagination">
+	{% if paginator.previous_page %}
+	<a href="{{ paginator.previous_page_path }}" class="prev">
+		<i class="iconfont icon-zuo"></i>
+		<span>Prev</span>
+	</a>
+	{% endif %}
+	{% if paginator.next_page %}
+	<a href="{{ paginator.next_page_path }}" class="next">
+		<span>Next</span>
+		<i class="iconfont icon-gengduo"></i>
+	</a>
+	{% endif %}
+</div>
+{% include footer.html %}

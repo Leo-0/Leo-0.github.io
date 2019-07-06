@@ -25,7 +25,7 @@ Speech Synthesis还没得到普遍的支持（戳[这里](https://developer.mozi
 - voice: 说话时的声音。
 - volume: 语音的音量。
 
-在测试中我主要通过改变pitch,rate来调整发音，voice和lang则只有Microsoft Huihui Desktop - Chinese (Simplified) (zh-CN) 和Microsoft Zira Desktop - English (United States) (en-US)能起到作用，Microsoft Zira Desktop - English (United States) (en-US)只能说英文的文本。用的是Chrome的最新版。
+在测试中我主要通过改变pitch,rate来调整发音，voice和lang则只有Microsoft Huihui Desktop - Chinese (Simplified) (zh-CN) 和Microsoft Zira Desktop - English (United States) (en-US)能起到作用，Microsoft Zira Desktop - English (United States) (en-US)只能说英文的文本。在Windows 8上使用的是Chrome的最新版。
 
 在使用`SpeechSynthesis`对象的`getVoices()`方法获取声音时，因为该方法的获取是异步的，所以需要添加一个定时器，用一个`setTimeout`来搞定，才能准确获得voices。
 
@@ -79,5 +79,3 @@ btn.onclick = function(evt) {
 }
 {% endhighlight %}
 可通过此查看[demo](http://htmlpreview.github.io/?https://github.com/Leo-0/SpeechSynthesisDemo/blob/master/demo/index.html)。
-## 结语
-无聊时就得做些事啊。

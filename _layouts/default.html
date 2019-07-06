@@ -5,12 +5,52 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	{% if page.title %}
+	<title>{{ page.title }}</title>
+	{% else %}
+	<title>{{ site.title }}</title>
+	{% endif %}
 	<link rel="stylesheet" type="text/css" href="/assets/css/common.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/home.css">
+	{% if page.title %}
+	<link rel="stylesheet" type="text/css" href="/assets/css/post.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/pygments.css">
+	{% endif %}
+	<link rel="stylesheet" type="text/css" href="/assets/fonts/font_k0lyt5kopo/iconfont.css">
+	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 </head>
 
 <body>
-	{{ content }}
+	<div class="container">
+		<div class="col w4">
+			<div class="side-bar">
+				<div class="avatar">
+					<canvas id="avatarGraph">您的浏览器不支持canvas,请更换或更新浏览器后重试</canvas>
+				</div>
+				<div class="info">
+					<p class="name">{{ site.author }}</p>
+					<div class="signatures">
+						{% for sign in site.personalized %}
+						<p>{{ sign.signature }}</p>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="nav-bar">
+					{% for nav in site.nav %}
+					<a href="{{ nav.url }}" class="nav nav-title">{{ nav.title }}</a>
+					{% endfor %}
+				</div>
+				<div class="search">
+					<input type="text" id="search-box" placeholder="search something">
+				</div>
+			</div>
+		</div>
+		<div class="col w6">
+			<div class="post-lists">
+				{{ content }}
+			</div>
+		</div>
+	</div>
 	<script type="text/javascript" src="/assets/js/followMouse.js" async="async"></script>
 </body>
 
