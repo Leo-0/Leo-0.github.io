@@ -11,10 +11,13 @@
 	<title>{{ site.title }}</title>
 	{% endif %}
 	<link rel="stylesheet" type="text/css" href="/assets/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/assets/css/home.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 	{% if page.title %}
 	<link rel="stylesheet" type="text/css" href="/assets/css/post.css">
 	<link rel="stylesheet" type="text/css" href="/assets/css/pygments.css">
+	{% endif %}
+	{% if page.url == "/archive" or page.url == "/tags" %}
+	<link rel="stylesheet" type="text/css" href="/assets/css/arctag.css">
 	{% endif %}
 	<link rel="stylesheet" type="text/css" href="/assets/fonts/font_k0lyt5kopo/iconfont.css">
 	<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">

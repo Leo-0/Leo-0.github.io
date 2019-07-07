@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  style test
-date:   2017-07-29
+date:   2017-07-29 20:38:52 +0800
 tags:   test
 ---
 Aha,the test post!😀

@@ -35,10 +35,10 @@ saying:
     - Everything is permitted
 # Navigation
 nav: 
-    - {title: home, url: '/'}
-    - {title: archive, url: '/archive'}
-    - {title: tags, url: '/tags'}
-    - {title: about, url: '/about'}
+    - {title: 首页, url: '/'}
+    - {title: 归档, url: '/archive'}
+    - {title: 标签, url: '/tags'}
+    - {title: 关于, url: '/about'}
 
 # Build settings
 markdown: kramdown
@@ -48,7 +48,7 @@ plugins:
   - jekyll-paginate
 
 # Paginator
-paginate: 2
+paginate: 10
 paginate_path: 'blog/page:num'
 
 # Baidu Analysis

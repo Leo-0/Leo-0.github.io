@@ -1,0 +1,29 @@
+.archive-row,.tag-row {
+    margin-bottom: 5px;
+}
+.archive-row .archive-year,
+.tag-row .tag-name {
+    color: #e37d7d;
+}
+.archive-row .archive-info,
+.tag-row .tag-info {
+    margin-left: 12px;
+    font-size: 1em;
+    border-left: 1px solid #cacaca;;
+    transition: font-size .3s ease-out;
+}
+.archive-row .archive-info .date {
+    color: #8a8a8a;
+    margin: 0 15px;
+}
+.tag-row .tag-info .tpt {
+    margin-left: 15px;
+}
+.archive-row .archive-info:hover,
+.tag-row .tag-info:hover {
+    font-size: 1.5em;
+}
+.archive-row h1,
+.tag-row h1 {
+    padding-left: 5px;
+}
