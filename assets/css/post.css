@@ -11,7 +11,7 @@ h1,h2,h3 {
     color: #2b2b2b;
 }
 .post-content p {
-    margin: 10px 0;
+    margin: 20px 0;
 }
 .post-content p img {
     text-align: center;
@@ -24,6 +24,9 @@ h1,h2,h3 {
 table {
     border-collapse:collapse;
     width: 100%;
+}
+code table {
+    width: auto;
 }
 th,td {
     border: 1px solid rgb(0,34,40);
@@ -43,6 +46,12 @@ tr:nth-child(even) {
 }
 ul li,ol li {
     list-style-position: inside;
+}
+code {
+    line-height: 1.5;
+}
+figure.highlight {
+    margin: 10px 0;
 }
 .highlight code {
     display: block;
@@ -66,7 +75,7 @@ code tr:nth-child(even) {
 }
 code.highlighter-rouge {
     padding: 3px;
-    background-color: rgb(151,173,172);
+    background-color: rgb(209, 216, 216);
 }
 blockquote {
     border-left: 5px solid slategrey;
