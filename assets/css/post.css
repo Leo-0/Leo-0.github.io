@@ -3,8 +3,10 @@
     border-bottom: 1px solid #ddd;
     margin-bottom: 10px;
 }
-h1,h2,h3 {
+h1,h2 {
     font-size: 1.5em;
+}
+h1,h2,h3 {
     margin: 5px 0;
 }
 .post-content {
@@ -49,6 +51,7 @@ ul li,ol li {
 }
 code {
     line-height: 1.5;
+    /* 没有line-height时,如果有中文行,会出现行号与行不对应的情况 */
 }
 figure.highlight {
     margin: 10px 0;
@@ -75,7 +78,7 @@ code tr:nth-child(even) {
 }
 code.highlighter-rouge {
     padding: 3px;
-    background-color: rgb(209, 216, 216);
+    background-color: rgb(234, 255, 110);
 }
 blockquote {
     border-left: 5px solid slategrey;

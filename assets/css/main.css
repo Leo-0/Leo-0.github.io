@@ -32,6 +32,7 @@
 }
 .signatures {
     letter-spacing: 1px;
+    font-size: 1.125em;
 }
 .nav-bar {
     display: flex;
