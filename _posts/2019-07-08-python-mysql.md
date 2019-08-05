@@ -66,7 +66,8 @@ db = pymysql.connect(host=localhost, port=port, user=user, password=password, da
 cursor = db.cursor()
 try:
     # 执行sql语句
-    cursor.execute("insert into apitime(col1,col2,col3,col4) values('%d','%s','%s','%s')" % (123, 'abc', 'cbd', '2019-07-08 22:31'))
+    cursor.execute("insert into apitime(col1,col2,col3,col4) values(%s,%s,%s,%s)" % (123, 'abc', 'cbd', '2019-07-08 22:31'))
+    # executemany方法可以批量插入cursor.executemany("insert into apitime(col1,col2,col3,col4) values(%s,%s,%s,%s)",[(123, 'abc', 'cbd', '2019-07-08 22:31:12'),(234,'bcd','abc','2019-07-09 10:32:30')])
     # 提交到数据库执行,需要commit()才会真正插入数据
     db.commit()
 except Exception as e:

@@ -52,16 +52,20 @@ sql语句的执行需使用execute方法,大致就是相当于写好sql语句,�
 cursor.execute('select top 1 * from tempdb')
 # pymssql参数查询
 cursor.execute('select * from tempdb where col = %s','name')
-cursor.execute('select * from tempdb where col1 = %s and col2 = %s',['name1','name2']) # 参数序列
+cursor.execute('select * from tempdb where col1 = %s and col2 = %s',[('name1','name2'),('name3','name4')]) # 参数序列
 # pyodbc的传参使用问号传递
 cursor.execute('select * from tempdb where col = ?','name')
-cursor.execute('select * from tempdb where col1 = ? and col2 = ?',['name1','name2']) # 参数序列
-# 获取一行
+cursor.execute('select * from tempdb where col1 = ? and col2 = ?',[('name1','name2'),('name3','name4')]) # 参数序列
+# 获取一行,下一个查询结果集
 row = cursor.fetchone()
 # 获取结果
-print(row['name']) # pymssql
-print(row[0]) # pyodbc
+# print(row['name'])
+# print(row[0])
 # print(row.name)
+# 一行一行获取
+while row:
+    print(row)
+    row = cursor.fetchone()
 # 获取全部行
 rows = cursor.fetchall()
 for r in rows:

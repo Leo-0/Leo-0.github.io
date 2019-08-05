@@ -6,11 +6,12 @@
     color: #e37d7d;
 }
 .tag-row .tag-name {
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 .archive-row .archive-info,
 .tag-row .tag-info {
     margin-left: 12px;
+    padding: 5px 0;
     font-size: 1em;
     border-left: 1px solid #cacaca;;
     transition: font-size .3s ease-out;
