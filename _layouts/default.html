@@ -43,9 +43,9 @@
 					<a href="{{ nav.url }}" class="nav nav-title">{{ nav.title }}</a>
 					{% endfor %}
 				</div>
-				<div class="search">
+				<!-- <div class="search">
 					<input type="text" id="search-box" placeholder="search something">
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div class="col w6">
@@ -55,6 +55,11 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="/assets/js/followMouse.js" async="async"></script>
+	<!-- cjweather  https://cj.weather.com.cn-->
+	<script type="text/javascript">
+		WIDGET = { FID: '{{ site.cjweather }}' }
+	</script>
+	<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
 </body>
 
 </html>

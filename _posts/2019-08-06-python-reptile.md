@@ -50,14 +50,13 @@ for img in imglist:
 print('图片抓取完毕')
 pageFile.close()
 {% endhighlight %}
-
 # 为何要加上User-Agent:
 一开始是直接使用
 {% highlight python linenos %}
 page = urllib.request.urlopen('https://www.lifeofpix.com/')
 htmlcode = page.read()
 {% endhighlight %}
-在执行的过程中出现过403 forbidden的情况,网上搜索后给出的原因:用 urllib.request.urlopen 方式打开一个URL，服务器端只会收到一个单纯的对于该页面访问的请求，但是服务器并不知道发送这个请求使用的浏览器，操作系统，硬件平台等信息，而缺失这些信息的请求往往都是非正常的访问。
+在执行的过程中出现过403 forbidden的情况,网上搜索后给出的原因:用 urllib.request.urlopen 方式打开一个URL，服务器端只会收到一个单纯的对于该页面访问的请求，但是服务器并不知道发送这个请求使用的浏览器，操作系统，硬件平台等信息，而缺失这些信息的请求往往都是非正常的访问.
 
-有些网站为了防止这种非正常的访问，会验证请求信息中的UserAgent，如果UserAgent存在异常或者是不存在,那么这次请求将会被拒绝。
+有些网站为了防止这种非正常的访问，会验证请求信息中的UserAgent，如果UserAgent存在异常或者是不存在,那么这次请求将会被拒绝.
 添加UA模拟浏览器访问,隐藏用户身份.

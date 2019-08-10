@@ -38,3 +38,6 @@ a:hover {
 a:hover i,a:hover .iconfont {
     color: #f86f5b;
 }
+body {
+    overflow: hidden;
+}

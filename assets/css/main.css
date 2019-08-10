@@ -167,3 +167,9 @@
 .footer .copyright p.power-by span a {
     color: #ea7362;
 }
+#weather-float-he {
+    opacity:  .2;
+}
+#weather-float-he:hover {
+    opacity: 1;
+}

@@ -55,6 +55,8 @@ paginate_path: 'blog/page:num'
 # baidu-analysis:
 #    enable: true
 baidu-analysis: 3df3daf643a33650a558775016d1291a
+
+cjweather: 83wqJhc9xs
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
