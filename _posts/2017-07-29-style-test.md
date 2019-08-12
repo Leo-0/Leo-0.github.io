@@ -19,8 +19,6 @@ h3大小
 ![fight.gif](/images/fight.gif)
 一行字
 <img src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/0A/07/ChMkJ1waFS-IFKycAAD4vnBJX50AAt4CwBzfU4AAPjW497.jpg"/>
-又是一张图片
-<img src="https://b-ssl.duitang.com/uploads/item/201605/28/20160528212429_c2HAm.jpeg" />
 最后一张图片
 <img src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/0A/ChMkJlbKz3qIGmtbAAI6CCuNT0IAALJVgN5ACgAAjog837.jpg" />
 ### highlight:

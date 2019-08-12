@@ -15,6 +15,7 @@
         this.x = [];
         this.y = [];
     }
+    let all = 0;
     //添加点击事件
     imgList.forEach(img => {
         img.addEventListener('click', () => {
@@ -45,6 +46,7 @@
     }
     // 开始一块一块显示背景
     function start(img) {
+        all = 0;
         let posArr = shuffle(initPositionArr(len));//打乱的数值
         let kids = mask.getElementsByClassName('wall-kid'); //获取所有子块div
         let kidsList = Array.prototype.slice.call(kids);
@@ -71,6 +73,7 @@
                         'transform': 'rotateX(0)'
                     });
                 }
+                all++;
             }, posArr.shift() * 35);//把数组的第一个元素从其中删除，并返回第一个元素的值。
         });
     }
@@ -167,14 +170,18 @@
         return array;
     };
     function prev() {
-        let i = findImgIndex(curImg);
-        curImg = i > 0 ? imgList[i - 1] : imgList[imgList.length - 1];
-        start(curImg);
+        if (all === col * row) {
+            let i = findImgIndex(curImg);
+            curImg = i > 0 ? imgList[i - 1] : imgList[imgList.length - 1];
+            start(curImg);
+        }
     }
     function next() {
-        let i = findImgIndex(curImg);
-        curImg = i === imgList.length - 1 ? imgList[0] : imgList[i + 1];
-        start(curImg);
+        if (all === col * row) {
+            let i = findImgIndex(curImg);
+            curImg = i === imgList.length - 1 ? imgList[0] : imgList[i + 1];
+            start(curImg);
+        }
     }
     function findImgIndex(img) {
         for (var i in imgList) {
