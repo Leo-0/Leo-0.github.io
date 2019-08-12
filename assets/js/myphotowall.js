@@ -1,29 +1,30 @@
 (function () {
     let closeBtn = document.getElementById('close-btn');
     let mask = document.getElementById('mask');
+    let prevBtn = document.getElementById('prev-btn');
+    let nextBtn = document.getElementById('next-btn');
     const col = 6;//列数
     const row = 4;//行数
     const len = 24;//col*row
     let imgs = document.getElementsByTagName('img'); // 获取所有图片
     let imgList = Array.prototype.slice.call(imgs);
+    let curImg;
+    let down = false;
+    let mDownx = 0, mDowny = 0;
+    let curPos = new function () {
+        this.x = [];
+        this.y = [];
+    }
     //添加点击事件
     imgList.forEach(img => {
         img.addEventListener('click', () => {
-            let posArr = shuffle(initPositionArr(len));//打乱的数值
+            curImg = img;
             toggleClass(mask, 'hidden');
-            addPanel();
-            let kids = mask.getElementsByClassName('wall-kid'); //获取所有子块div
-            let kidsList = Array.prototype.slice.call(kids);
-            kidsList.forEach((kid, i) => {
-                setTimeout(function () {
-                    setBackground(kid, img, i);
-                    setStyle(kid, {
-                        'transform': 'rotate(0)'
-                    });
-                }, posArr.shift() * 35);
-            });
+            init();
+            start(img);
         }, false);
     });
+    // 初始化面板
     function init() {
         let kids = mask.getElementsByClassName('wall-kid'); //获取所有子块div
         if (kids.length !== 0) {
@@ -32,6 +33,46 @@
                 mask.removeChild(kid);
             })
         }
+        for (var i = 0; i < row * col; i++) {
+            curPos.x[i] = 0;
+            curPos.y[i] = 0;
+        }
+        setStyle(mask, {
+            'perspective': '1000px',
+            'perspective-origin': '10% 10%'
+        });// 设置视距才有3D旋转的效果
+        addPanel();
+    }
+    // 开始一块一块显示背景
+    function start(img) {
+        let posArr = shuffle(initPositionArr(len));//打乱的数值
+        let kids = mask.getElementsByClassName('wall-kid'); //获取所有子块div
+        let kidsList = Array.prototype.slice.call(kids);
+        kidsList.forEach((kid, i) => {
+            let d = Math.random() > 0.5 ? true : false;
+            if (d) {
+                setStyle(kid, {
+                    'transform': 'rotateY(180deg)'
+                });
+            } else {
+                setStyle(kid, {
+                    'transform': 'rotateX(180deg)'
+                });
+            }
+            setStyle(kid)
+            setTimeout(function () {
+                setBackground(kid, img, i);
+                if (d) {
+                    setStyle(kid, {
+                        'transform': 'rotateY(0)'
+                    });
+                } else {
+                    setStyle(kid, {
+                        'transform': 'rotateX(0)'
+                    });
+                }
+            }, posArr.shift() * 35);//把数组的第一个元素从其中删除，并返回第一个元素的值。
+        });
     }
     //切换类名
     function toggleClass(ele, className) {
@@ -45,10 +86,10 @@
     }
     // 添加小面板
     function addPanel() {
-        // let kidWidth = Math.round(mask.offsetWidth / col);
-        // let kidHeight = Math.round(mask.offsetHeight / row);
-        let kidWidth = mask.offsetWidth / col;
-        let kidHeight = mask.offsetHeight / row;
+        let kidWidth = Math.round(mask.offsetWidth / col);
+        let kidHeight = Math.round(mask.offsetHeight / row);
+        // let kidWidth = mask.offsetWidth / col; 
+        // let kidHeight = mask.offsetHeight / row;// 直接这样的话,窗口改变大小时会出现中间有一条间隙的情况
         for (var i = 0; i < row; i++) {
             for (var j = 0; j < col; j++) {
                 let kid = document.createElement('div');
@@ -84,6 +125,13 @@
             'background-image': 'url(' + imgsrc + ')',
             'background-position': backgroundPos.horizontalPos + 'px ' + backgroundPos.verticalPos + 'px'
         });
+        recordCurPos(ele, index);
+    }
+    // 记录元素当前的背景位置
+    function recordCurPos(ele, i) {
+        let bPos = ele.style['background-position'].split(/px[\s]?/);
+        curPos.x[i] = parseInt(bPos[0]);
+        curPos.y[i] = parseInt(bPos[1]);
     }
     //计算背景位置
     function calcBackgroundPos(ele, index, middlePos) {
@@ -118,8 +166,81 @@
         for (var j, x, i = array.length; i; j = parseInt(Math.random() * i), x = array[--i], array[i] = array[j], array[j] = x);
         return array;
     };
+    function prev() {
+        let i = findImgIndex(curImg);
+        curImg = i > 0 ? imgList[i - 1] : imgList[imgList.length - 1];
+        start(curImg);
+    }
+    function next() {
+        let i = findImgIndex(curImg);
+        curImg = i === imgList.length - 1 ? imgList[0] : imgList[i + 1];
+        start(curImg);
+    }
+    function findImgIndex(img) {
+        for (var i in imgList) {
+            if (imgList[i] === img) {
+                return parseInt(i);
+            }
+        }
+        return -1;
+    }
+    //获取鼠标在屏幕中的坐标
+    function getMousePos(event) {
+        var e = event || window.event;
+        return {
+            x: e.pageX || (e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft)),
+            y: e.pageY || (e.clientY + (document.documentElement.scrollTop || document.body.scrollTop))
+        };
+    }
+    //获取鼠标相对于对象的坐标
+    function getPosInObj(ele, screenX, screenY) {
+        return {
+            x: screenX - ele.offsetLeft,
+            y: screenY - ele.offsetTop
+        };
+    }
+    function calcMoveDistance() {
+
+    }
+    window.onresize = function () {
+        init();
+        start(curImg);
+    }
+    mask.addEventListener('mousedown', (event) => {
+        down = true;
+        let mousePosInScreen = getMousePos(event);
+        let mousePosInObj = getPosInObj(mask, mousePosInScreen.x, mousePosInScreen.y);
+        mDownx = mousePosInObj.x;
+        mDowny = mousePosInObj.y;
+    }, false);
+    mask.addEventListener('mousemove', (event) => {
+        if (down) {
+            let mousePosInScreen = getMousePos(event);
+            let mousePosInObj = getPosInObj(mask, mousePosInScreen.x, mousePosInScreen.y);
+            let dx = mousePosInObj.x - mDownx;// 鼠标移动的距离x
+            let dy = mousePosInObj.y - mDowny;//鼠标移动的距离y
+            let kids = mask.getElementsByClassName('wall-kid'); //获取所有子块div
+            let kidsList = Array.prototype.slice.call(kids);
+            kidsList.forEach((kid, i) => {
+                let bPosx = curPos.x[i] + dx;//移动后的背景位置x
+                let bPosy = curPos.y[i] + dy;//移动后的背景位置y
+                setStyle(kid, {
+                    'background-position': bPosx + 'px ' + bPosy + 'px'
+                });
+            });
+        }
+    }, false);
+    window.onmouseup = function () {
+        down = false;
+        let kids = mask.getElementsByClassName('wall-kid'); //获取所有子块div
+        let kidsList = Array.prototype.slice.call(kids);
+        kidsList.forEach((kid, i) => {
+            recordCurPos(kid, i);//记录最终的背景位置,以防重新移动时出现背景自动偏移一段距离的情况
+        });
+    }
     closeBtn.onclick = function () {
         toggleClass(mask, 'hidden');
-        init();
     }
+    prevBtn.onclick = prev;
+    nextBtn.onclick = next;
 })();

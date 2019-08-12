@@ -215,3 +215,30 @@
 .close-btn:hover::before,.close-btn:hover::after {
     background-color: #fff;
 }
+.mask .prev,.mask .next {
+    width: 50px;
+    height: 50px;
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    top:50%;
+    z-index:  100;
+}
+.mask .prev {
+    left: 8px;
+}
+.mask .next {
+    right: 8px;
+}
+.mask .prev .iconfont,.mask .next .iconfont {
+    font-size: 50px;
+    font-weight: bold;
+}
+/* 防止鼠标移动背景时出现块元素被选中的情况 */
+.mask .wall-kid { 
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none;  /*webkit浏览器*/
+    -ms-user-select: none;   /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+}
