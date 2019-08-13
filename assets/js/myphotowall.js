@@ -209,10 +209,6 @@
     function calcMoveDistance() {
 
     }
-    window.onresize = function () {
-        init();
-        start(curImg);
-    }
     mask.addEventListener('mousedown', (event) => {
         down = true;
         let mousePosInScreen = getMousePos(event);
@@ -250,4 +246,8 @@
     }
     prevBtn.onclick = prev;
     nextBtn.onclick = next;
+    window.onresize = function () {
+        init();
+        start(curImg);
+    }
 })();

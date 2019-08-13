@@ -1,4 +1,4 @@
-(function (obj) {
+(function () {
     var cns = document.getElementById('avatarGraph');
     var ctx;
     if (cns.getContext) {
@@ -78,8 +78,12 @@
         yr = (3 * h - r) / 6 + r / 16 * Math.sin(angle2);
         draw2(xl, yl, xr, yr);
     }
-    window.onresize = function () {
+    // window.onresize = function () { 
+    //     init();
+    //     draw();
+    // } // 用这个会使得后定义的onresize覆盖先定义的,导致这里不起作用
+    window.addEventListener('resize', (event) => {
         init();
         draw();
-    }
-})(window);
+    }, false);
+})();
