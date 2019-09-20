@@ -1,71 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <!--[if lt IE 9]>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <title>page not found</title>
-  <link rel="stylesheet" type="text/css" href="/assets/css/pagenotfound.css">
+	<title>page not found</title>
+	<style>
+		.info {
+			margin: 10px auto;
+			text-align: center;
+			font-size: 20px;
+		}
+
+		#no-found {
+			margin-top: 30px;
+		}
+
+		.keys {
+			margin: 0 auto;
+		}
+
+		#tip {
+			width: 100px;
+			margin: 10px auto;
+			display: block;
+		}
+
+		#key {
+			width: 100px;
+			height: 100px;
+			margin: 10px auto;
+			display: block;
+			text-align: center;
+			line-height: 100px;
+			font-size: 80px;
+			color: white;
+		}
+
+		.info,
+		#key {
+			/* font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace; */
+			font-family: tahoma, arial, 'Hiragino Sans GB', '\5b8b\4f53', sans-serif;
+			font-weight: bolder;
+		}
+	</style>
 </head>
+
 <body>
-  <div class="container">
-    <a class="home" href="/">首页</a>
-    <div class="page-info">
-      <h1>404</h1>
-      <p class="info"><strong>Page not found :(</strong></p>
-      <p class="info">The requested page could not be found.</p>
-    </div>
-    <div class="piano-container">
-      <h2>来弹奏一曲吧</h2>
-      <h2>《找朋友》</h2>
-      <div class="sheet-music">
-        <dl class="number"><dt>乐谱</dt><dd>5</dd><dd>6</dd><dd>5</dd><dd>6</dd><dd>5</dd><dd>6</dd><dd>5</dd><dd class="empty-pat"></dd><dd>5</dd><dd class="high-pat">1</dd><dd>7</dd><dd>6</dd><dd>5</dd><dd>5</dd><dd>3</dd><dd class="empty-pat"></dd><dd>5</dd><dd>5</dd><dd>3</dd><dd>3</dd><dd>5</dd><dd>5</dd><dd>3</dd><dd class="empty-pat"></dd><dd>2</dd><dd>4</dd><dd>3</dd><dd>2</dd><dd>1</dd><dd>2</dd><dd>1</dd></dl>
-        <dl class="letter"><dt>键盘弹奏</dt><dd>G</dd><dd>H</dd><dd>G</dd><dd>H</dd><dd>G</dd><dd>H</dd><dd>G</dd><dd class="empty-pat"></dd><dd>G</dd><dd>K</dd><dd>J</dd><dd>H</dd><dd>G</dd><dd>G</dd><dd>D</dd><dd class="empty-pat"></dd><dd>G</dd><dd>G</dd><dd>D</dd><dd>D</dd><dd>G</dd><dd>G</dd><dd>D</dd><dd class="empty-pat"></dd><dd>S</dd><dd>F</dd><dd>D</dd><dd>S</dd><dd>A</dd><dd>S</dd><dd>A</dd></dl>
-      </div>
-    </div>
-    <div class="piano-keys">
-    	<div class="key" style="background: #c0ebf7;">
-    		<dl class="number"><dd>1</dd></dl>
-    		<dl class="letter"><dd>A</dd></dl>
-    	</div>
-    	<div class="key" style="background: #79d9f3;">
-    		<dl class="number"><dd>2</dd></dl>
-    		<dl class="letter"><dd>S</dd></dl>
-    	</div>
-    	<div class="key" style="background: #69bcf3;">
-    		<dl class="number"><dd>3</dd></dl>
-    		<dl class="letter"><dd>D</dd></dl>
-    	</div>
-    	<div class="key" style="background: #22EAAA;">
-    		<dl class="number"><dd>4</dd></dl>
-    		<dl class="letter"><dd>F</dd></dl>
-    	</div>
-    	<div class="key" style="background: #acd180;">
-    		<dl class="number"><dd>5</dd></dl>
-    		<dl class="letter"><dd>G</dd></dl>
-    	</div>
-    	<div class="key" style="background: #b9d329;">
-    		<dl class="number"><dd>6</dd></dl>
-    		<dl class="letter"><dd>H</dd></dl>
-    	</div>
-    	<div class="key" style="background: #ffae5b;">
-    		<dl class="number"><dd>7</dd></dl>
-    		<dl class="letter"><dd>J</dd></dl>
-    	</div>
-    	<div class="key" style="background: #fab4cc;">
-    		<dl class="number"><dd class="high-pat">1</dd></dl>
-    		<dl class="letter"><dd>K</dd></dl>
-    	</div>
-    	<div class="key" style="background: #fa5f94;">
-    		<dl class="number"><dd class="high-pat">2</dd></dl>
-    		<dl class="letter"><dd>L</dd></dl>
-    	</div>
-    </div>
-  </div>
-  <script type="text/javascript" src="/assets/js/sound.js"></script>
+	<div class="container">
+		<div class="info" id="no-found">
+			Page not found :(
+		</div>
+		<div class="info" id="no-support"></div>
+		<div class="info" id="support"></div>
+		<div class="keys">
+			<span id="tip"></span>
+			<span id="key"></span>
+		</div>
+	</div>
+	<script type="text/javascript" src="/assets/js/sound.js"></script>
 </body>
+
 </html>
