@@ -234,6 +234,20 @@
     font-size: 50px;
     font-weight: bold;
 }
+.mask .auto {
+    position: absolute;
+    z-index: 100;
+    border: 1px solid white;
+    padding: 2px 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    opacity: .6;
+}
+.mask .auto #auto-play:hover {
+    color: white;
+    opacity: 1;
+}
 /* 防止鼠标移动背景时出现块元素被选中的情况 */
 .mask .wall-kid { 
     -moz-user-select: none; /*火狐*/

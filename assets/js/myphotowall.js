@@ -3,6 +3,8 @@
     let mask = document.getElementById('mask');
     let prevBtn = document.getElementById('prev-btn');
     let nextBtn = document.getElementById('next-btn');
+    let autoPlay = document.getElementById('auto-play');
+    let timeId;
     const col = 6;//列数
     const row = 4;//行数
     const len = 24;//col*row
@@ -206,10 +208,19 @@
             y: screenY - ele.offsetTop
         };
     }
-    function calcMoveDistance() {
-
+    function autoPlayImg() {
+        clearTimeId();
+        timeId = setInterval(() => {
+            next();
+        }, 3000);
+    }
+    function clearTimeId() {
+        if (timeId) {
+            clearInterval(timeId);
+        }
     }
     mask.addEventListener('mousedown', (event) => {
+        clearTimeId();
         down = true;
         let mousePosInScreen = getMousePos(event);
         let mousePosInObj = getPosInObj(mask, mousePosInScreen.x, mousePosInScreen.y);
@@ -243,9 +254,19 @@
     }
     closeBtn.onclick = function () {
         toggleClass(mask, 'hidden');
+        clearTimeId();
     }
-    prevBtn.onclick = prev;
-    nextBtn.onclick = next;
+    prevBtn.onclick = function () {
+        clearTimeId();
+        prev();
+    }
+    nextBtn.onclick = function () {
+        clearTimeId();
+        next();
+    }
+    autoPlay.onclick = function () {
+        autoPlayImg();
+    }
     window.onresize = function () {
         init();
         start(curImg);
