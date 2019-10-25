@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 80%;
+}
+body {
+    height: 100%;
+}
+.game-box {
+    width: 600px;
+    height: 100%;
+    margin: 20px auto;
+    padding: 20px;
+}
+.game-box .game-panel  {
+    height: 100%;
+}
+.game-box .game-panel .game-top {
+    margin-bottom: 5px;
+}
+.game-box .game-panel .game-top .number-range,
+.game-box .game-panel .game-top .score-panel {
+    display: inline-block;
+}
+.game-box .game-panel .game-top .number-range input {
+    width: 60px;
+    padding: 0 5px;
+}
+.game-box .game-panel .show-panel {
+    width: 100%;
+    height: 80%;
+    border:1px solid black;
+    /* background-color: #2b2a2a; */
+    background-color: black;
+}
+.game-box .game-panel .user-panel {
+
+}
+.game-box .game-panel .show-panel .number-panel {
+    width: 40%;
+    height: 300px;
+    margin: 5% auto;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    position: relative;
+    perspective: 1000px;
+}
+.game-box .game-panel .show-panel .number-panel .front,
+.game-box .game-panel .show-panel .number-panel .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    font-size: 100px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 300px;
+    backface-visibility: hidden;
+    transition: all 1s;
+}
+.game-box .game-panel .show-panel .number-panel .front {
+    transform: rotateY(180deg);
+    background-color: skyblue;
+}
+.game-box .game-panel .show-panel .number-panel .back {
+    background-color: tomato;
+}
+.game-box .game-panel .show-panel .number-panel.flip .front {
+    transform: rotateY(0deg);
+}
+.game-box .game-panel .show-panel .number-panel.flip .back {
+    transform: rotateY(-180deg);
+}
