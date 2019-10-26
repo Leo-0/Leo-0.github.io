@@ -22,7 +22,7 @@
         if (!pat.test(n1) && !pat.test(n2) && n1 !== '' && n2 !== '') {
             var num1 = parseInt(n1);
             var num2 = parseInt(n2);
-            if (num1 + gap < num2) {
+            if (num1 + gap <= num2) {
                 if (!begin) {
                     begin = true;
                     this.innerHTML = '已开始';
